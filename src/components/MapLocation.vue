@@ -37,7 +37,7 @@ $home-building-width: 37;
 .map-location {
   cursor: pointer;
   position: absolute;
-  width: calc((#{$public-building-width} / 921) * 100vw);
+  width: #{$public-building-width}px;
 
   &:hover {
     .map-location__bubble {
@@ -52,7 +52,7 @@ $home-building-width: 37;
   }
 
   &._home {
-    width: calc((#{$home-building-width} / 921) * 100vw);
+    width: #{$home-building-width}px;
   }
 }
 

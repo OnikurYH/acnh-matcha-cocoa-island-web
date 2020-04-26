@@ -56,6 +56,14 @@ export default class Map extends Vue {
       text: "居民中間街",
     },
     {
+      name: "street-center-road",
+      text: "中間道",
+    },
+    {
+      name: "street-airport-road",
+      text: "機場道",
+    },
+    {
       name: "center",
       text: "服務處",
     },
@@ -184,7 +192,7 @@ export default class Map extends Vue {
 }
 
 .map-scroll {
-  width: 100vw;
+  width: 921px;
   cursor: move;
 }
 
@@ -300,27 +308,39 @@ export default class Map extends Vue {
   }
 
   &._street-home-1-2 {
-    width: calc((100vw / 921) * 203);
+    width: 203px;
     left: 13%;
     top: 74%;
   }
 
   &._street-home-3-4 {
-    width: calc((100vw / 921) * 130);
+    width: 130px;
     left: 13%;
     top: 62%;
   }
 
   &._street-home-5-10 {
-    width: calc((100vw / 921) * 278);
+    width: 278px;
     left: 13%;
     top: 49%;
   }
 
   &._street-home-center {
-    width: calc((100vw / 921) * 16);
+    width: 16px;
     left: 27%;
     top: 32.5%;
+  }
+
+  &._street-center-road {
+    width: 320px;
+    left: 53.7%;
+    top: 71%;
+  }
+
+  &._street-airport-road {
+    width: 16px;
+    left: 53.7%;
+    top: 73%;
   }
 }
 </style>
