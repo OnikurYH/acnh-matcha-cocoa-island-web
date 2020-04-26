@@ -40,6 +40,22 @@ import { Location } from "../types";
 export default class Map extends Vue {
   public locations: Location[] = [
     {
+      name: "street-home-1-2",
+      text: "傑克街",
+    },
+    {
+      name: "street-home-3-4",
+      text: "丸阿街",
+    },
+    {
+      name: "street-home-5-10",
+      text: "橫民街",
+    },
+    {
+      name: "street-home-center",
+      text: "居民中間街",
+    },
+    {
       name: "center",
       text: "服務處",
     },
@@ -117,10 +133,6 @@ export default class Map extends Vue {
       text: "文青",
       suffix: "10",
     },
-    {
-      name: "street-home-1-2",
-      text: "傑克街",
-    },
   ];
 
   public isDragging = false;
@@ -135,6 +147,7 @@ export default class Map extends Vue {
     }
     const mapContent = this.$refs.mapContent as HTMLElement;
     mapContent.scrollLeft -= ev.movementX;
+    mapContent.scrollTop -= ev.movementY;
   }
 
   public handleMouseUp() {
@@ -167,6 +180,7 @@ export default class Map extends Vue {
   flex: 1;
   padding-top: 30px;
   overflow-x: auto;
+  height: calc(100vh - 108px);
 }
 
 .map-scroll {
@@ -288,7 +302,25 @@ export default class Map extends Vue {
   &._street-home-1-2 {
     width: calc((100vw / 921) * 203);
     left: 13%;
-    top: 73%;
+    top: 74%;
+  }
+
+  &._street-home-3-4 {
+    width: calc((100vw / 921) * 130);
+    left: 13%;
+    top: 62%;
+  }
+
+  &._street-home-5-10 {
+    width: calc((100vw / 921) * 278);
+    left: 13%;
+    top: 49%;
+  }
+
+  &._street-home-center {
+    width: calc((100vw / 921) * 16);
+    left: 27%;
+    top: 32.5%;
   }
 }
 </style>

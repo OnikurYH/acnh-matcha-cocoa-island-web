@@ -87,6 +87,7 @@ $home-building-width: 37;
   font-weight: bold;
   opacity: 0;
   transform: scale(0) translateY(100%);
+  z-index: 1000;
 }
 
 .map-location__bubble-text {
