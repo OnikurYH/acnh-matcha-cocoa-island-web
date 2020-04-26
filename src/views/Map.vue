@@ -5,7 +5,13 @@
     @mousemove="handleMouseMove"
     @mouseup="handleMouseUp"
   >
-    <div class="map-info"></div>
+    <div v-if="selectedLocation" class="map-info">
+      <h2>{{ selectedLocation.text }}</h2>
+      <dl class="map-info__detail-list">
+        <dt>地址</dt>
+        <dd>抹茶可可島{{ selectedLocation.address }}</dd>
+      </dl>
+    </div>
     <div class="map-content" ref="mapContent">
       <div class="map-scroll">
         <div class="map__heading-container">
@@ -42,108 +48,132 @@ export default class Map extends Vue {
     {
       name: "street-home-1-2",
       text: "傑克街",
+      address: "住宅區",
     },
     {
       name: "street-home-3-4",
       text: "丸阿街",
+      address: "住宅區",
     },
     {
       name: "street-home-5-10",
       text: "橫民街",
+      address: "住宅區",
     },
     {
       name: "street-home-center",
       text: "居民中間街",
+      address: "住宅區",
     },
     {
       name: "street-center-road",
       text: "中間道",
+      address: "中央區",
     },
     {
       name: "street-airport-road",
       text: "機場道",
+      address: "中央區",
     },
     {
       name: "center",
       text: "服務處",
+      address: "中間道 1 號",
     },
     {
       name: "airport",
       text: "機場",
+      address: "機場道 1 號",
     },
     {
       name: "shop",
       text: "商店",
+      address: "中間道 2 號",
     },
     {
       name: "museum",
       text: "博物館",
+      address: "中間道 3 號",
     },
     {
       name: "cloth",
       text: "裁縫屋",
+      address: "中間道 4 號",
     },
     {
       name: "camp",
       text: "露營地",
+      address: "居民中間街 1 號",
     },
     {
       name: "ship",
       text: "狐利",
+      address: "後岸海灘",
     },
     {
       name: "home",
-      text: "傑克",
+      text: "傑克家",
       suffix: "1",
+      address: "傑克街 1 號",
     },
     {
       name: "home",
-      text: "克莉琪",
+      text: "克莉琪家",
       suffix: "2",
+      address: "傑克街 2 號",
     },
     {
       name: "home",
-      text: "丸子",
+      text: "丸子家",
       suffix: "3",
+      address: "丸阿街 1 號",
     },
     {
       name: "home",
-      text: "阿笨",
+      text: "阿笨家",
       suffix: "4",
+      address: "丸阿街 2 號",
     },
     {
       name: "home",
-      text: "帕塔雅",
+      text: "帕塔雅家",
       suffix: "5",
+      address: "橫民街 1 號",
     },
     {
       name: "home",
-      text: "朱祿",
+      text: "朱祿家",
       suffix: "6",
+      address: "橫民街 2 號",
     },
     {
       name: "home",
-      text: "阿二",
+      text: "阿二家",
       suffix: "7",
+      address: "居民中間街 2 號",
     },
     {
       name: "home",
-      text: "哈姆",
+      text: "哈姆家",
       suffix: "8",
+      address: "居民中間街 3 號",
     },
     {
       name: "home",
-      text: "羅賓",
+      text: "羅賓家",
       suffix: "9",
+      address: "橫民街 3 號",
     },
     {
       name: "home",
-      text: "文青",
+      text: "文青家",
       suffix: "10",
+      address: "橫民街 4 號",
     },
   ];
 
   public isDragging = false;
+  public selectedLocation: Location | null = null;
 
   public handleMouseDown() {
     this.isDragging = true;
@@ -163,7 +193,7 @@ export default class Map extends Vue {
   }
 
   public handleClickLocation(location: Location) {
-    console.log(location);
+    this.selectedLocation = location;
   }
 }
 </script>
@@ -181,7 +211,20 @@ export default class Map extends Vue {
 
 .map-info {
   min-width: 200px;
+  width: 10vw;
   background-color: rgba(255, 255, 255, 0.5);
+  padding: 0 30px;
+}
+
+.map-info__detail-list {
+  dt {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+
+  dd {
+    margin-left: 0;
+  }
 }
 
 .map-content {
