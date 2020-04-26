@@ -1,35 +1,177 @@
 <template>
-  <div class="map">
-    <div class="map__heading-container">
-      <h1 class="map__heading">抹茶可可島地圖</h1>
-    </div>
-    <div class="map-container">
-      <img class="map-background" src="../assets/images/map/background.svg" />
-      <MapLocation name="center" text="服務處" />
-      <MapLocation name="airport" text="機場" />
-      <MapLocation name="shop" text="商店" />
-      <MapLocation name="museum" text="博物館" />
-      <MapLocation name="cloth" text="裁縫屋" />
-      <MapLocation name="camp" text="露營地" />
-      <MapLocation name="ship" text="狐利" />
+  <div
+    class="map"
+    @mousedown="handleMouseDown"
+    @mousemove="handleMouseMove"
+    @mouseup="handleMouseUp"
+  >
+    <div class="map-info"></div>
+    <div class="map-content" ref="mapContent">
+      <div class="map-scroll">
+        <div class="map__heading-container">
+          <h1 class="map__heading">抹茶可可島地圖</h1>
+        </div>
+        <div class="map-container">
+          <img
+            class="map-background"
+            src="../assets/images/map/background.svg"
+          />
+          <MapLocation
+            v-for="location in locations"
+            :key="location.text"
+            :value="location"
+            @click="handleClickLocation"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </template>
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 import MapLocation from "../components/MapLocation.vue";
+import { Location } from "../types";
 
 @Component({
   components: {
     MapLocation,
   },
 })
-export default class Map extends Vue {}
+export default class Map extends Vue {
+  public locations: Location[] = [
+    {
+      name: "center",
+      text: "服務處",
+    },
+    {
+      name: "airport",
+      text: "機場",
+    },
+    {
+      name: "shop",
+      text: "商店",
+    },
+    {
+      name: "museum",
+      text: "博物館",
+    },
+    {
+      name: "cloth",
+      text: "裁縫屋",
+    },
+    {
+      name: "camp",
+      text: "露營地",
+    },
+    {
+      name: "ship",
+      text: "狐利",
+    },
+    {
+      name: "home",
+      text: "傑克",
+      suffix: "1",
+    },
+    {
+      name: "home",
+      text: "克莉琪",
+      suffix: "2",
+    },
+    {
+      name: "home",
+      text: "丸子",
+      suffix: "3",
+    },
+    {
+      name: "home",
+      text: "阿笨",
+      suffix: "4",
+    },
+    {
+      name: "home",
+      text: "帕塔雅",
+      suffix: "5",
+    },
+    {
+      name: "home",
+      text: "朱祿",
+      suffix: "6",
+    },
+    {
+      name: "home",
+      text: "阿二",
+      suffix: "7",
+    },
+    {
+      name: "home",
+      text: "哈姆",
+      suffix: "8",
+    },
+    {
+      name: "home",
+      text: "羅賓",
+      suffix: "9",
+    },
+    {
+      name: "home",
+      text: "文青",
+      suffix: "10",
+    },
+    {
+      name: "street-home-1-2",
+      text: "傑克街",
+    },
+  ];
+
+  public isDragging = false;
+
+  public handleMouseDown() {
+    this.isDragging = true;
+  }
+
+  public handleMouseMove(ev: MouseEvent) {
+    if (!this.isDragging) {
+      return;
+    }
+    const mapContent = this.$refs.mapContent as HTMLElement;
+    mapContent.scrollLeft -= ev.movementX;
+  }
+
+  public handleMouseUp() {
+    this.isDragging = false;
+  }
+
+  public handleClickLocation(location: Location) {
+    console.log(location);
+  }
+}
 </script>
 <style lang="scss">
 .map {
   background-color: #76c8b5;
+  display: flex;
+  overflow: hidden;
+
+  * {
+    user-select: none;
+    -webkit-user-drag: none;
+  }
+}
+
+.map-info {
+  min-width: 200px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.map-content {
+  flex: 1;
   padding-top: 30px;
+  overflow-x: auto;
+}
+
+.map-scroll {
+  width: 100vw;
+  cursor: move;
 }
 
 .map__heading-container {
@@ -91,6 +233,62 @@ export default class Map extends Vue {}
   &._ship {
     left: 47%;
     top: 1.5%;
+  }
+
+  &._home-1 {
+    left: 14%;
+    top: 65.5%;
+  }
+
+  &._home-2 {
+    left: 22%;
+    top: 65.5%;
+  }
+
+  &._home-3 {
+    left: 14%;
+    top: 53%;
+  }
+
+  &._home-4 {
+    left: 22%;
+    top: 53%;
+  }
+
+  &._home-5 {
+    left: 14%;
+    top: 40%;
+  }
+
+  &._home-6 {
+    left: 22%;
+    top: 40%;
+  }
+
+  &._home-7 {
+    left: 20%;
+    top: 33%;
+  }
+
+  &._home-8 {
+    left: 32%;
+    top: 33%;
+  }
+
+  &._home-9 {
+    left: 30%;
+    top: 40%;
+  }
+
+  &._home-10 {
+    left: 39%;
+    top: 40%;
+  }
+
+  &._street-home-1-2 {
+    width: calc((100vw / 921) * 203);
+    left: 13%;
+    top: 73%;
   }
 }
 </style>

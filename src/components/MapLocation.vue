@@ -1,32 +1,43 @@
 <template>
-  <div :class="['map-location', `_${name}`]">
+  <div
+    :class="[
+      'map-location',
+      `_${value.name}`,
+      `_${value.name}${value.suffix ? `-${value.suffix}` : ''}`,
+    ]"
+    @click="$emit('click', { ...value })"
+  >
     <div class="map-location__bubble">
-      <div class="map-location__bubble-text">{{ text }}</div>
+      <div class="map-location__bubble-text">{{ value.text }}</div>
       <img
         class="map-location__bubble-arrow"
         src="../assets/images/map/bubble-arrow.svg"
       />
     </div>
-    <img class="map-location__image" :src="`locations/location-${name}.svg`" />
+    <img
+      class="map-location__image"
+      :src="`locations/location-${value.name}.svg`"
+    />
   </div>
 </template>
 <script lang="ts">
 import { Component, Prop, Vue } from "vue-property-decorator";
+import { Location } from "../types";
 
 @Component
 export default class MapLocation extends Vue {
-  @Prop() private name!: string;
-  @Prop() private text!: string;
+  @Prop() private value!: Location;
 }
 </script>
 <style lang="scss">
 $bubble-arrow-size: 10%;
+$public-building-width: 58;
+$home-building-width: 37;
 
 .map-location {
   cursor: pointer;
   position: absolute;
-  width: calc((58 / 998) * 100vw);
-  height: calc((58 / 998) * 100vw);
+  width: calc((#{$public-building-width} / 921) * 100vw);
 
   &:hover {
     .map-location__bubble {
@@ -34,6 +45,28 @@ $bubble-arrow-size: 10%;
       transform: scale(1) translateY(0);
       transition: 0.2s opacity, 0.2s transform;
     }
+
+    .map-location__image {
+      animation: map-location-hover steps(1, start) 1s forwards infinite;
+    }
+  }
+
+  &._home {
+    width: calc((#{$home-building-width} / 921) * 100vw);
+  }
+}
+
+@keyframes map-location-hover {
+  0% {
+    filter: hue-rotate(0) saturate(1);
+  }
+
+  50% {
+    filter: hue-rotate(7deg) saturate(180);
+  }
+
+  100% {
+    filter: hue-rotate(0) saturate(1);
   }
 }
 
@@ -48,7 +81,7 @@ $bubble-arrow-size: 10%;
   position: absolute;
   bottom: 100%;
   left: 0%;
-  font-size: calc((25 / 998) * 100vw);
+  font-size: calc((25 / 921) * 100vw);
   white-space: nowrap;
   color: #6b6b69;
   font-weight: bold;
@@ -60,12 +93,12 @@ $bubble-arrow-size: 10%;
   position: relative;
   background-color: rgba(214, 198, 160, 0.7);
   border-radius: 0.4em;
-  padding: calc((10 / 998) * 100vw) calc((15 / 998) * 100vw);
+  padding: calc((10 / 921) * 100vw) calc((15 / 921) * 100vw);
 }
 
 .map-location__bubble-arrow {
-  width: calc((15 / 998) * 100vw);
-  margin-left: calc((15 / 998) * 100vw);
+  width: calc((15 / 921) * 100vw);
+  margin-left: calc((15 / 921) * 100vw);
   opacity: 0.7;
 }
 </style>
