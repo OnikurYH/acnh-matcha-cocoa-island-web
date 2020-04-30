@@ -9,7 +9,7 @@
                 </dl>
             </div>
             <div v-else>
-                <h2>請從右側地圖中選擇一個位置以顯示詳細信息</h2>
+                <h2>請從地圖中選擇一個位置以顯示詳細信息</h2>
             </div>
         </div>
         <div class="map-content" ref="mapContent">
@@ -420,6 +420,13 @@ export default class Map extends Vue {
     background-color: #76c8b5;
     display: flex;
     overflow: hidden;
+    flex-direction: column-reverse;
+    width: 100vw;
+    height: calc(100vh - 78px);
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+    }
 
     .map-content * {
         user-select: none;
@@ -428,10 +435,13 @@ export default class Map extends Vue {
 }
 
 .map-info {
-    min-width: 200px;
-    width: 10vw;
     background-color: rgba(255, 255, 255, 0.5);
     padding: 0 30px;
+
+    @media screen and (min-width: 768px) {
+        width: 10vw;
+        min-width: 200px;
+    }
 }
 
 .map-info__detail-list {
