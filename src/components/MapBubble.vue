@@ -7,7 +7,6 @@
 
 <script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
-import { Location } from '../types';
 
 @Component
 export default class MapLocation extends Vue {
@@ -21,6 +20,7 @@ export default class MapLocation extends Vue {
 
 <style lang="scss">
 .MapBubble {
+    pointer-events: none;
     display: flex;
     flex-direction: column;
     align-items: flex-start;

@@ -282,6 +282,17 @@ export default class Map extends Vue {
             color: 'rgba(187, 255, 239, 0.5)',
         },
         {
+            name: 'cultural-exchange',
+            text: '文化交流町',
+            address: '中央區',
+            x: 38.4,
+            y: 76.5,
+            type: 'street',
+            width: 14.8,
+            height: 7.8,
+            color: 'rgba(255, 255, 255, 0.5)',
+        },
+        {
             name: 'university',
             text: '抹茶可可大學',
             address: '中央區大學道 2-3 號',
@@ -410,7 +421,7 @@ export default class Map extends Vue {
     display: flex;
     overflow: hidden;
 
-    * {
+    .map-content * {
         user-select: none;
         -webkit-user-drag: none;
     }
