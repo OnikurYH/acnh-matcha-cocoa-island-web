@@ -35,6 +35,10 @@ $home-building-width: 37;
     }
 }
 
+.MapLocationBuildingImage {
+    pointer-events: none;
+}
+
 @keyframes map-location-hover {
     0% {
         filter: hue-rotate(0) saturate(1);

@@ -492,5 +492,6 @@ export default class Map extends Vue {
 
 .map-background {
     width: 100%;
+    pointer-events: none;
 }
 </style>
