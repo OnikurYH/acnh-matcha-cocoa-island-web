@@ -1,8 +1,8 @@
 <template>
     <div id="app">
         <div id="nav">
-            <router-link to="/">Home</router-link> |
-            <router-link to="/about">About</router-link>
+            <router-link to="/">首頁</router-link> |
+            <router-link to="/map">地圖</router-link>
         </div>
         <router-view />
     </div>
@@ -19,11 +19,14 @@
 }
 
 #nav {
+    background-color: #2c3e50;
     padding: 30px;
+    color: #ffffff;
 
     a {
         font-weight: bold;
-        color: #2c3e50;
+        color: #ffffff;
+        text-decoration: none;
 
         &.router-link-exact-active {
             color: #42b983;

@@ -1,11 +1,16 @@
 <template>
     <div class="map" @mousedown="handleMouseDown" @mousemove="handleMouseMove" @mouseup="handleMouseUp">
-        <div v-if="selectedLocation" class="map-info">
-            <h2>{{ selectedLocation.text }}</h2>
-            <dl class="map-info__detail-list">
-                <dt>地址</dt>
-                <dd>抹茶可可島{{ selectedLocation.address }}</dd>
-            </dl>
+        <div class="map-info">
+            <div v-if="selectedLocation">
+                <h2>{{ selectedLocation.text }}</h2>
+                <dl class="map-info__detail-list">
+                    <dt>地址</dt>
+                    <dd>抹茶可可島{{ selectedLocation.address }}</dd>
+                </dl>
+            </div>
+            <div v-else>
+                <h2>請從右側地圖中選擇一個位置以顯示詳細信息</h2>
+            </div>
         </div>
         <div class="map-content" ref="mapContent">
             <div class="map-scroll">
@@ -81,16 +86,16 @@ export default class Map extends Vue {
             name: 'street-university-road',
             text: '大學道',
             address: '中央區',
-            x: 53.3,
-            y: 67,
-            width: 320,
+            x: 53.4,
+            y: 67.5,
+            width: 286,
         },
         {
             name: 'street-airport-road',
             text: '機場道',
             address: '中央區',
             x: 53.4,
-            y: 74.9,
+            y: 75.2,
             width: 30,
         },
         {
@@ -98,7 +103,7 @@ export default class Map extends Vue {
             text: '農場道',
             address: '中央區',
             x: 63.8,
-            y: 43,
+            y: 43.3,
             width: 42,
         },
         {
@@ -281,7 +286,7 @@ export default class Map extends Vue {
             text: '抹茶可可大學',
             address: '中央區大學道 2-3 號',
             x: 67,
-            y: 74.9,
+            y: 75.2,
             type: 'street',
             width: 16.8,
             height: 8.8,
@@ -291,8 +296,8 @@ export default class Map extends Vue {
             name: 'car-park',
             text: '公眾停車場',
             address: '中央區大學道 1 號',
-            x: 56.7,
-            y: 74.9,
+            x: 56.9,
+            y: 75.2,
             type: 'street',
             width: 9.8,
             height: 8.8,
@@ -306,7 +311,7 @@ export default class Map extends Vue {
             y: 59.8,
             type: 'street',
             width: 3.8,
-            height: 6.5,
+            height: 6.9,
             color: 'rgba(193, 143, 0, 0.5)',
         },
         {
@@ -317,7 +322,7 @@ export default class Map extends Vue {
             y: 59.8,
             type: 'street',
             width: 10.9,
-            height: 6.5,
+            height: 6.9,
             color: 'rgba(82, 255, 167, 0.5)',
         },
         {
