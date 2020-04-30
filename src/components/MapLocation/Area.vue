@@ -1,0 +1,55 @@
+<template>
+    <MapLocationBase
+        :value="value"
+        @click="$emit('click', { ...value })"
+        :extra-style="{ width: `${value.width}%`, height: `${value.height}%` }"
+    >
+        <div
+            :class="['MapLocationArea', `_${value.name}`, `_${value.type}`]"
+            :style="{ 'background-color': value.color }"
+        />
+    </MapLocationBase>
+</template>
+<script lang="ts">
+import { Component, Prop, Vue } from 'vue-property-decorator';
+import { LocationArea } from '../../types';
+import MapLocationBase from './Base.vue';
+
+@Component({
+    components: {
+        MapLocationBase,
+    },
+})
+export default class MapLocationArea extends Vue {
+    @Prop() private value!: LocationArea;
+}
+</script>
+<style lang="scss">
+.MapLocation {
+    &:hover {
+        .MapLocationArea {
+            animation: map-location-area-hover steps(1, start) 1s forwards infinite;
+        }
+    }
+}
+
+.MapLocationArea {
+    width: 100%;
+    height: 100%;
+    border: 3px solid rgb(255, 212, 93);
+}
+
+@keyframes map-location-area-hover {
+    0% {
+        border: 3px solid rgb(255, 212, 93);
+    }
+
+    50% {
+        border: 3px solid rgb(255, 237, 187);
+    }
+
+    100% {
+        border: 3px solid rgb(255, 212, 93);
+    }
+}
+</style>
