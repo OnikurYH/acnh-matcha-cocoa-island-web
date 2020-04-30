@@ -37,6 +37,11 @@ export default class MapLocationArea extends Vue {
     width: 100%;
     height: 100%;
     border: 3px solid rgb(255, 212, 93);
+
+    &._bridge {
+        border: 3px solid #91937c;
+        background-color: #7c7d6d;
+    }
 }
 
 @keyframes map-location-area-hover {

@@ -9,8 +9,8 @@ export interface Location {
 }
 
 export interface LocationArea extends Location {
-    type: 'street';
+    type: 'street' | 'bridge';
     width: number;
     height: number;
-    color: string;
+    color?: string;
 }
