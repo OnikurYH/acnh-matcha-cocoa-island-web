@@ -1,7 +1,7 @@
 <template>
     <MapLocationBase
         :value="value"
-        @click="$emit('click', { ...value })"
+        @select="$emit('select', { ...value })"
         :extra-style="{ width: `${value.width}%`, height: `${value.height}%` }"
     >
         <div

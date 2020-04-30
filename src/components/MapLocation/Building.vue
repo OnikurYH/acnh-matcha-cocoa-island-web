@@ -1,5 +1,5 @@
 <template>
-    <MapLocationBase :value="value" @click="$emit('click', { ...value })">
+    <MapLocationBase :value="value" @select="$emit('select', { ...value })">
         <img :class="['MapLocationBuildingImage', `_${value.name}`]" :src="`locations/location-${value.name}.svg`" />
     </MapLocationBase>
 </template>

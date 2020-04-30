@@ -7,7 +7,8 @@
             width: `${value.width}px`,
             ...extraStyle,
         }"
-        @click="$emit('click', { ...value })"
+        @click="$emit('select', { ...value })"
+        @touchstart="$emit('select', { ...value })"
         @mouseenter="isHover = true"
         @mouseleave="isHover = false"
     >

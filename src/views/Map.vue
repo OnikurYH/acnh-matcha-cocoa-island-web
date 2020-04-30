@@ -23,13 +23,13 @@
                         v-for="area in areas"
                         :key="area.text"
                         :value="area"
-                        @click="handleClickLocation"
+                        @select="handleClickLocation"
                     />
                     <MapLocationBuilding
                         v-for="building in buildings"
                         :key="building.text"
                         :value="building"
-                        @click="handleClickLocation"
+                        @select="handleClickLocation"
                     />
                 </div>
             </div>
@@ -422,7 +422,7 @@ export default class Map extends Vue {
     overflow: hidden;
     flex-direction: column-reverse;
     width: 100vw;
-    height: calc(100vh - 78px);
+    touch-action: manipulation;
 
     @media screen and (min-width: 768px) {
         flex-direction: row;
@@ -437,6 +437,7 @@ export default class Map extends Vue {
 .map-info {
     background-color: rgba(255, 255, 255, 0.5);
     padding: 0 30px;
+    padding-bottom: env(safe-area-inset-bottom);
 
     @media screen and (min-width: 768px) {
         width: 10vw;
