@@ -458,7 +458,6 @@ export default class Map extends Vue {
 
 .map-content {
     flex: 1;
-    padding-top: 30px;
     overflow: auto;
     height: calc(100vh - 108px);
 }
@@ -470,7 +469,7 @@ export default class Map extends Vue {
 }
 
 .map__heading-container {
-    margin-top: 0;
+    margin-top: 30px;
     margin-bottom: 60px;
 
     text-align: center;
