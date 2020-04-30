@@ -1,12 +1,1 @@
-<svg id="background" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 8.66">
-  <defs>
-    <style>
-      .cls-1 {
-        fill: #d6c6a0;
-      }
-    </style>
-  </defs>
-  <g id="center">
-    <polygon class="cls-1" points="5 8.66 10 0 0 0 5 8.66"/>
-  </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 8.66"><path fill="#d6c6a0" d="M5 8.66L10 0H0l5 8.66z"/></svg>

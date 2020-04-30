@@ -1,1 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 293.5"><g id="Layer_2" data-name="Layer 2"><g id="streets"><rect x="0.5" y="0.5" width="29" height="292.5" fill="#b0b0af"/><path d="M29,1V292.5H1V1H29m1-1H0V293.5H30V0Z" fill="#999"/></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 293.5"><g data-name="Layer 2"><path fill="#b0b0af" d="M.5.5h29V293H.5z"/><path d="M29 1v291.5H1V1h28m1-1H0v293.5h30V0z" fill="#999"/></g></svg>
