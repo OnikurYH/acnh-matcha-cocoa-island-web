@@ -5,19 +5,19 @@
                 <h2>{{ selectedLocation.text }}</h2>
                 <dl class="map-info__detail-list">
                     <dt>{{ $t('map.info.address') }}</dt>
-                    <dd>抹茶可可島{{ selectedLocation.address }}</dd>
-                    <dt v-if="selectedLocation.description">詳細</dt>
+                    <dd>{{ $t('islandName') }}{{ selectedLocation.address }}</dd>
+                    <dt v-if="selectedLocation.description">{{ $t('map.info.details') }}</dt>
                     <dd v-if="selectedLocation.description">{{ selectedLocation.description }}</dd>
                 </dl>
             </div>
             <div v-else>
-                <h2>請從地圖中選擇一個位置以顯示詳細信息</h2>
+                <h2>{{ $t('map.info.noSelect') }}</h2>
             </div>
         </div>
         <div class="map-content" ref="mapContent">
             <div class="map-scroll" :style="{ transform: `scale(${this.scale})` }">
                 <div class="map__heading-container">
-                    <h1 class="map__heading">{{ $t('islandName') }}地圖</h1>
+                    <h1 class="map__heading">{{ $t('islandName') }}{{ $t('map.name') }}</h1>
                 </div>
                 <div class="map-container">
                     <img class="map-background" src="../assets/images/map/background.svg" />
@@ -25,13 +25,13 @@
                         v-for="area in areas"
                         :key="area.text"
                         :value="area"
-                        @select="handleClickLocation"
+                        @select="handleClickLocation(area.text)"
                     />
                     <MapLocationBuilding
                         v-for="building in buildings"
                         :key="building.text"
                         :value="building"
-                        @select="handleClickLocation"
+                        @select="handleClickLocation(building.text)"
                     />
                 </div>
             </div>
@@ -58,228 +58,6 @@ import { Location, LocationArea } from '../types';
     },
 })
 export default class Map extends Vue {
-    public buildings: Location[] = [
-        {
-            name: 'street-home-1-2',
-            text: '傑克街',
-            address: '住宅區',
-            x: 13,
-            y: 70.7,
-            width: 203,
-        },
-        {
-            name: 'street-home-3-4',
-            text: '丸阿街',
-            address: '住宅區',
-            x: 13,
-            y: 60,
-            width: 123,
-        },
-        {
-            name: 'street-home-5-10',
-            text: '橫民街',
-            address: '住宅區',
-            x: 13,
-            y: 48.5,
-            width: 285,
-        },
-        {
-            name: 'street-home-center',
-            text: '居民中間街',
-            address: '住宅區',
-            x: 26.4,
-            y: 32.5,
-            width: 30,
-        },
-        {
-            name: 'street-university-road',
-            text: '大學道',
-            address: '中央區',
-            x: 53.4,
-            y: 67.5,
-            width: 286,
-        },
-        {
-            name: 'street-airport-road',
-            text: '機場道',
-            address: '中央區',
-            x: 53.4,
-            y: 75.2,
-            width: 30,
-        },
-        {
-            name: 'street-farm-road',
-            text: '農場道',
-            address: '中央區',
-            x: 63.8,
-            y: 43.3,
-            width: 42,
-        },
-        {
-            name: 'street-east-coastal-road',
-            text: '東海岸大道',
-            address: '中央區',
-            x: 84.5,
-            y: 42,
-            width: 30,
-        },
-        {
-            name: 'street-center-road',
-            text: '中間道',
-            address: '中央區',
-            x: 68.4,
-            y: 48,
-            width: 148,
-        },
-        {
-            name: 'street-museum-road',
-            text: '博物館道',
-            address: '中央區',
-            x: 47.2,
-            y: 43.1,
-            width: 129,
-        },
-        {
-            name: 'center',
-            text: '服務處',
-            address: '中間道 1 號',
-            x: 55.5,
-            y: 60.5,
-        },
-        {
-            name: 'airport',
-            text: '機場',
-            address: '機場道 1 號',
-            x: 55.5,
-            y: 87.5,
-        },
-        {
-            name: 'shop',
-            text: 'Nook 商店',
-            address: '中央區商店街 1 號',
-            x: 45.5,
-            y: 61.5,
-            description: '出售各式各樣商品，高價收購 2 件物品，每天 8:00am ～ 10:00pm 營業',
-        },
-        {
-            name: 'museum',
-            text: '博物館',
-            address: '山頂博物館道 1 號',
-            x: 51.5,
-            y: 13.5,
-        },
-        {
-            name: 'cloth',
-            text: 'ABLE SISTERS 裁縫屋',
-            address: '中央區商店街 2 號',
-            x: 47.5,
-            y: 66.5,
-            description: '出售成衣，每天 9:00am ～ 9:00pm 營業',
-        },
-        {
-            name: 'camp',
-            text: '露營地',
-            address: '居民中間街 1 號',
-            x: 30,
-            y: 51.5,
-        },
-        {
-            name: 'ship',
-            text: '狐利',
-            address: '後岸海灘',
-            x: 47,
-            y: 1.5,
-        },
-        {
-            name: 'home',
-            text: '傑克家',
-            suffix: '1',
-            address: '傑克街 1 號',
-            x: 14,
-            y: 65.5,
-        },
-        {
-            name: 'home',
-            text: '克莉琪家',
-            suffix: '2',
-            address: '傑克街 2 號',
-            x: 22,
-            y: 65.5,
-        },
-        {
-            name: 'home',
-            text: '丸子家',
-            suffix: '3',
-            address: '丸阿街 1 號',
-            x: 14,
-            y: 53,
-        },
-        {
-            name: 'home',
-            text: '阿笨家',
-            suffix: '4',
-            address: '丸阿街 2 號',
-            x: 22,
-            y: 53,
-        },
-        {
-            name: 'home',
-            text: '帕塔雅家',
-            suffix: '5',
-            address: '橫民街 1 號',
-            x: 14,
-            y: 40,
-        },
-        {
-            name: 'home',
-            text: '朱祿家',
-            suffix: '6',
-            address: '橫民街 2 號',
-            x: 22,
-            y: 40,
-        },
-        {
-            name: 'home',
-            text: '阿二家',
-            suffix: '7',
-            address: '居民中間街 2 號',
-            x: 20,
-            y: 33,
-        },
-        {
-            name: 'home',
-            text: '哈姆家',
-            suffix: '8',
-            address: '居民中間街 3 號',
-            x: 32,
-            y: 33,
-        },
-        {
-            name: 'home',
-            text: '羅賓家',
-            suffix: '9',
-            address: '橫民街 3 號',
-            x: 30,
-            y: 40,
-        },
-        {
-            name: 'home',
-            text: '文青家',
-            suffix: '10',
-            address: '橫民街 4 號',
-            x: 39,
-            y: 40,
-        },
-        {
-            name: 'my-home',
-            text: 'CocoaCaa 家',
-            suffix: '10',
-            address: '半山區',
-            x: 25,
-            y: 13,
-        },
-    ];
-
     public areas: LocationArea[] = [
         {
             name: 'shopping',
@@ -458,8 +236,240 @@ export default class Map extends Vue {
     ];
 
     public isDragging = false;
-    public selectedLocation: Location | null = null;
+    public selectedLocationKey: string | null = null;
     public scale = 1.0;
+
+    public get buildings(): Location[] {
+        return [
+            {
+                name: 'street-home-1-2',
+                text: this.$t('map.buildings.street-home-1-2.text'),
+                address: '住宅區',
+                x: 13,
+                y: 70.7,
+                width: 203,
+            },
+            {
+                name: 'street-home-3-4',
+                text: this.$t('map.buildings.street-home-3-4.text'),
+                address: '住宅區',
+                x: 13,
+                y: 60,
+                width: 123,
+            },
+            {
+                name: 'street-home-5-10',
+                text: this.$t('map.buildings.street-home-5-10.text'),
+                address: '住宅區',
+                x: 13,
+                y: 48.5,
+                width: 285,
+            },
+            {
+                name: 'street-home-center',
+                text: this.$t('map.buildings.street-home-center.text'),
+                address: '住宅區',
+                x: 26.4,
+                y: 32.5,
+                width: 30,
+            },
+            {
+                name: 'street-university-road',
+                text: this.$t('map.buildings.street-university-road.text'),
+                address: '中央區',
+                x: 53.4,
+                y: 67.5,
+                width: 286,
+            },
+            {
+                name: 'street-airport-road',
+                text: this.$t('map.buildings.street-airport-road.text'),
+                address: '中央區',
+                x: 53.4,
+                y: 75.2,
+                width: 30,
+            },
+            {
+                name: 'street-farm-road',
+                text: this.$t('map.buildings.street-farm-road.text'),
+                address: '中央區',
+                x: 63.8,
+                y: 43.3,
+                width: 42,
+            },
+            {
+                name: 'street-east-coastal-road',
+                text: this.$t('map.buildings.street-east-coastal-road.text'),
+                address: '中央區',
+                x: 84.5,
+                y: 42,
+                width: 30,
+            },
+            {
+                name: 'street-center-road',
+                text: this.$t('map.buildings.street-center-road.text'),
+                address: '中央區',
+                x: 68.4,
+                y: 48,
+                width: 148,
+            },
+            {
+                name: 'street-museum-road',
+                text: this.$t('map.buildings.street-museum-road.text'),
+                address: '中央區',
+                x: 47.2,
+                y: 43.1,
+                width: 129,
+            },
+            {
+                name: 'center',
+                text: this.$t('map.buildings.center.text'),
+                address: '中間道 1 號',
+                x: 55.5,
+                y: 60.5,
+            },
+            {
+                name: 'airport',
+                text: this.$t('map.buildings.airport.text'),
+                address: '機場道 1 號',
+                x: 55.5,
+                y: 87.5,
+            },
+            {
+                name: 'shop',
+                text: this.$t('map.buildings.shop.text'),
+                address: '中央區商店街 1 號',
+                x: 45.5,
+                y: 61.5,
+                description: '出售各式各樣商品，高價收購 2 件物品，每天 8:00am ～ 10:00pm 營業',
+            },
+            {
+                name: 'museum',
+                text: this.$t('map.buildings.museum.text'),
+                address: '山頂博物館道 1 號',
+                x: 51.5,
+                y: 13.5,
+            },
+            {
+                name: 'cloth',
+                text: this.$t('map.buildings.cloth.text'),
+                address: '中央區商店街 2 號',
+                x: 47.5,
+                y: 66.5,
+                description: '出售成衣，每天 9:00am ～ 9:00pm 營業',
+            },
+            {
+                name: 'camp',
+                text: this.$t('map.buildings.camp.text'),
+                address: '居民中間街 1 號',
+                x: 30,
+                y: 51.5,
+            },
+            {
+                name: 'ship',
+                text: '狐利',
+                address: '後岸海灘',
+                x: 47,
+                y: 1.5,
+            },
+            {
+                name: 'home',
+                text: '傑克家',
+                suffix: '1',
+                address: '傑克街 1 號',
+                x: 14,
+                y: 65.5,
+            },
+            {
+                name: 'home',
+                text: '克莉琪家',
+                suffix: '2',
+                address: '傑克街 2 號',
+                x: 22,
+                y: 65.5,
+            },
+            {
+                name: 'home',
+                text: '丸子家',
+                suffix: '3',
+                address: '丸阿街 1 號',
+                x: 14,
+                y: 53,
+            },
+            {
+                name: 'home',
+                text: '阿笨家',
+                suffix: '4',
+                address: '丸阿街 2 號',
+                x: 22,
+                y: 53,
+            },
+            {
+                name: 'home',
+                text: '帕塔雅家',
+                suffix: '5',
+                address: '橫民街 1 號',
+                x: 14,
+                y: 40,
+            },
+            {
+                name: 'home',
+                text: '朱祿家',
+                suffix: '6',
+                address: '橫民街 2 號',
+                x: 22,
+                y: 40,
+            },
+            {
+                name: 'home',
+                text: '阿二家',
+                suffix: '7',
+                address: '居民中間街 2 號',
+                x: 20,
+                y: 33,
+            },
+            {
+                name: 'home',
+                text: '哈姆家',
+                suffix: '8',
+                address: '居民中間街 3 號',
+                x: 32,
+                y: 33,
+            },
+            {
+                name: 'home',
+                text: '羅賓家',
+                suffix: '9',
+                address: '橫民街 3 號',
+                x: 30,
+                y: 40,
+            },
+            {
+                name: 'home',
+                text: '文青家',
+                suffix: '10',
+                address: '橫民街 4 號',
+                x: 39,
+                y: 40,
+            },
+            {
+                name: 'my-home',
+                text: 'CocoaCaa 家',
+                suffix: '10',
+                address: '半山區',
+                x: 25,
+                y: 13,
+            },
+        ];
+    }
+
+    public get selectedLocation() {
+        const location =
+            this.buildings.find(b => b.text === this.selectedLocationKey) ||
+            this.areas.find(a => a.text === this.selectedLocationKey);
+
+        return location;
+    }
 
     public handleMouseDown() {
         this.isDragging = true;
@@ -478,8 +488,8 @@ export default class Map extends Vue {
         this.isDragging = false;
     }
 
-    public handleClickLocation(location: Location) {
-        this.selectedLocation = location;
+    public handleClickLocation(key: string) {
+        this.selectedLocationKey = key;
     }
 
     public handleZoomIn() {
