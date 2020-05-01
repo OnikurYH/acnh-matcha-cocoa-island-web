@@ -69,6 +69,6 @@ export default {
     },
     footer: {
         nintendo:
-            '<a href="https://www.nintendo.com.hk/switch/animal_crossing_new_horizons/" rel="noopener">集合啦！動物森友會</a>是 <a href="https://www.nintendo.com.hk" rel="noopener">Nintendo</a> 版權所有，不屬於本網站',
+            '<a href="https://www.nintendo.com.hk/switch/animal_crossing_new_horizons/" target="_blank" rel="noopener">集合啦！動物森友會</a>是 <a href="https://www.nintendo.com.hk" target="_blank" rel="noopener">Nintendo</a> 版權所有，不屬於本網站',
     },
 };

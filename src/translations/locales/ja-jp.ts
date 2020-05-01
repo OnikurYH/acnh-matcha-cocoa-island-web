@@ -69,6 +69,6 @@ export default {
     },
     footer: {
         nintendo:
-            '<a href="https://www.nintendo.com.hk/switch/animal_crossing_new_horizons/" rel="noopener">あつまれ どうぶつの森</a>は<a href="https://www.nintendo.com.hk" rel="noopener">任天堂</a>の著作権であり、これウェブサイトの一部ではありません。',
+            '<a href="https://www.nintendo.co.jp/switch/acbaa/index.html" target="_blank" rel="noopener">あつまれ どうぶつの森</a>は<a href="https://www.nintendo.co.jp" target="_blank" rel="noopener">任天堂</a>の著作権であり、これウェブサイトの一部ではありません。',
     },
 };
