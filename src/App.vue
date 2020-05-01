@@ -66,8 +66,12 @@ export default class Map extends Vue {
 
 .TopNav {
     background-color: #2c3e50;
-    padding: 30px 0;
+    padding: 30px;
     color: #ffffff;
+
+    @media screen and (min-width: 768px) {
+        padding: 30px 15px;
+    }
 
     a {
         font-weight: bold;
@@ -94,6 +98,13 @@ export default class Map extends Vue {
     color: #fff;
     background-color: #2c3e50;
     padding-top: 5px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    @media screen and (min-width: 768px) {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
 
     p {
         font-size: 12px;
