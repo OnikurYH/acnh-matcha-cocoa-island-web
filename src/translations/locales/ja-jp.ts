@@ -1,5 +1,9 @@
 export default {
     islandName: '抹茶ココ島',
+    home: {
+        heading: '抹茶ココ島<small>観光公式ホームページ</small>',
+        cta: 'マップはこちら',
+    },
     map: {
         name: 'マップ',
         info: {

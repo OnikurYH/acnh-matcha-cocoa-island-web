@@ -1,5 +1,9 @@
 export default {
     islandName: '抹茶可可島',
+    home: {
+        heading: '抹茶可可島<small>旅遊官方網站</small>',
+        cta: '按此進入地圖',
+    },
     map: {
         name: '地圖',
         info: {

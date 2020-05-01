@@ -3,11 +3,14 @@
         <div id="nav" class="TopNav">
             <div class="TopNavContainer">
                 <div class="TopNavLeft">
-                    <router-link :to="$url('/')">{{ $t('topNav.home') }}</router-link> |
-                    <router-link :to="$url('/map')">{{ $t('topNav.map') }}</router-link>
+                    <router-link class="TopNavLogoLink" :to="$url('/')"
+                        ><img class="TopNavLogo" src="./assets/images/logo.png" width="382" height="365" alt="Logo"
+                    /></router-link>
+                    <router-link class="TopNavLink" :to="$url('/')">{{ $t('topNav.home') }}</router-link>
+                    <router-link class="TopNavLink" :to="$url('/map')">{{ $t('topNav.map') }}</router-link>
                 </div>
                 <div class="TopNavRight">
-                    <router-link :to="changeLanguageUrl">{{ $t('topNav.language') }}</router-link>
+                    <router-link class="TopNavLink" :to="changeLanguageUrl">{{ $t('topNav.language') }}</router-link>
                 </div>
             </div>
         </div>
@@ -62,32 +65,56 @@ export default class Map extends Vue {
     flex-direction: column;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;
 }
 
 .TopNav {
     background-color: #2c3e50;
-    padding: 30px;
+    padding: 0 30px;
     color: #ffffff;
 
     @media screen and (min-width: 768px) {
-        padding: 30px 15px;
+        padding: 0 15px;
     }
+}
 
-    a {
-        font-weight: bold;
-        color: #ffffff;
-        text-decoration: none;
+.TopNavLogoLink {
+    line-height: 0;
+    margin-right: 10px;
+}
 
-        &.router-link-exact-active {
-            color: #42b983;
-        }
-    }
+.TopNavLogo {
+    width: auto;
+    height: 50px;
 }
 
 .TopNavContainer {
     display: flex;
     margin: 0 auto;
     max-width: 1140px;
+}
+
+.TopNavLeft,
+.TopNavRight {
+    display: flex;
+    align-items: stretch;
+}
+
+.TopNavLink {
+    padding: 16px 10px;
+
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    transition: 200ms color;
+
+    &:hover {
+        color: #42b983;
+    }
+
+    &.router-link-exact-active {
+        color: #42b983;
+    }
 }
 
 .TopNavRight {
