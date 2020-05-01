@@ -7,14 +7,16 @@
             </div>
         </div>
         <router-view />
-        <footer class="footer">
-            <p>Copyright &copy; CocoaCaa.work.</p>
-            <p>
-                <a href="https://www.nintendo.com.hk/switch/animal_crossing_new_horizons/" rel="noopener"
-                    >集合啦！動物森友會</a
-                >
-                是 <a href="https://www.nintendo.com.hk" rel="noopener">Nintendo</a> 版權所有，不屬於本網站
-            </p>
+        <footer class="Footer">
+            <div class="FooterContainer">
+                <p>Copyright &copy; CocoaCaa.work.</p>
+                <p>
+                    <a href="https://www.nintendo.com.hk/switch/animal_crossing_new_horizons/" rel="noopener"
+                        >集合啦！動物森友會</a
+                    >
+                    是 <a href="https://www.nintendo.com.hk" rel="noopener">Nintendo</a> 版權所有，不屬於本網站
+                </p>
+            </div>
         </footer>
     </div>
 </template>
@@ -76,10 +78,10 @@ export default class Map extends Vue {
     max-width: 1140px;
 }
 
-.footer {
+.Footer {
     color: #fff;
     background-color: #2c3e50;
-    padding: 5px 15px 0 15px;
+    padding-top: 5px;
 
     p {
         font-size: 12px;
@@ -91,5 +93,10 @@ export default class Map extends Vue {
         color: #42b983;
         text-decoration: none;
     }
+}
+
+.FooterContainer {
+    margin: 0 auto;
+    max-width: 1140px;
 }
 </style>
