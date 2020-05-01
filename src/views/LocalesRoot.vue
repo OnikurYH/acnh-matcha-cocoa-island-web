@@ -1,10 +1,3 @@
 <template>
-    <div class="LocalesRoot">
-        <router-view />
-    </div>
+    <router-view />
 </template>
-<style lang="scss">
-.LocalesRoot {
-    flex: 1;
-}
-</style>

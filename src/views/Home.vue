@@ -1,12 +1,14 @@
 <template>
-    <div class="Home">
-        <video class="HomeBackgroundVideo" preload="auto" autoplay loop>
-            <source src="../assets/videos/front-video.mp4" type="video/mp4" />
-        </video>
-        <div class="HomeBackgroundVideoOverlay" />
-        <div class="HomeBannerContent">
-            <h1 class="HomeHeading" v-html="$t('home.heading')" />
-            <router-link class="HomeCTA" :to="`${$url('/map')}`">{{ $t('home.cta') }}</router-link>
+    <div class="HomeContainer">
+        <div class="Home">
+            <video class="HomeBackgroundVideo" muted autoplay loop playsinline>
+                <source src="../assets/videos/front-video.mp4" type="video/mp4" />
+            </video>
+            <div class="HomeBackgroundVideoOverlay" />
+            <div class="HomeBannerContent">
+                <h1 class="HomeHeading" v-html="$t('home.heading')" />
+                <router-link class="HomeCTA" :to="`${$url('/map')}`">{{ $t('home.cta') }}</router-link>
+            </div>
         </div>
     </div>
 </template>
@@ -19,6 +21,10 @@ export default class Home extends Vue {}
 </script>
 
 <style lang="scss">
+.HomeContainer {
+    flex: 1;
+}
+
 .Home {
     display: flex;
     align-items: center;
