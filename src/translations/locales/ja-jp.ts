@@ -1,4 +1,5 @@
 export default {
+    islandName: '抹茶ココ島',
     map: {
         info: {
             address: '地址',

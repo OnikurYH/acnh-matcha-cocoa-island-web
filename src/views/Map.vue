@@ -17,7 +17,7 @@
         <div class="map-content" ref="mapContent">
             <div class="map-scroll" :style="{ transform: `scale(${this.scale})` }">
                 <div class="map__heading-container">
-                    <h1 class="map__heading">抹茶可可島地圖</h1>
+                    <h1 class="map__heading">{{ $t('islandName') }}地圖</h1>
                 </div>
                 <div class="map-container">
                     <img class="map-background" src="../assets/images/map/background.svg" />

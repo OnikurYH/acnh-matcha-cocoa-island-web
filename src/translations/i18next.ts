@@ -1,5 +1,5 @@
 import Vue, { VueConstructor } from 'vue';
-import i18next from 'i18next';
+import i18next, { TOptions } from 'i18next';
 
 import zhHantTranslation from './locales/zh-hant';
 import jaJpTranslation from './locales/ja-jp';
@@ -17,9 +17,19 @@ i18next.init({
     },
 });
 
+export const i18nextVm = new Vue({
+    data: {
+        lastUpdated: Date.now(),
+    },
+});
+
 class I18NextPlugin {
     public static install(vue: VueConstructor<Vue>) {
-        vue.prototype.$t = i18next.t.bind(i18next);
+        // vue.prototype.$t = i18next.t.bind(i18next);
+
+        vue.prototype.$t = function(key: string | string[], opts?: TOptions) {
+            return i18next.t.bind(i18next)(key, { ...opts, d: i18nextVm.$data.lastUpdated });
+        };
 
         Object.defineProperty(vue.prototype, '$lng', {
             get: function() {

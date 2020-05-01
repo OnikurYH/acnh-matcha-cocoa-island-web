@@ -3,6 +3,7 @@ import VueRouter, { RouteConfig } from 'vue-router';
 import LocalesRoot from '../views/LocalesRoot.vue';
 import Home from '../views/Home.vue';
 import i18next from 'i18next';
+import { i18nextVm } from '@/translations/i18next';
 
 Vue.use(VueRouter);
 
@@ -43,6 +44,7 @@ const routeLangToLng: Map<string, string> = new Map([
 
 router.beforeEach((to, from, next) => {
     i18next.changeLanguage(routeLangToLng.get(to.params.lang) || 'zh-Hant');
+    i18nextVm.$data.lastUpdated = Date.now();
     next();
 });
 

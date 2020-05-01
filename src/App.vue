@@ -2,20 +2,12 @@
     <div id="app" :style="{ height: `${rootHeight}px` }">
         <div id="nav" class="TopNav">
             <div class="TopNavContainer">
-                <div>
+                <div class="TopNavLeft">
                     <router-link :to="$url('/')">首頁</router-link> |
                     <router-link :to="$url('/map')">地圖</router-link>
                 </div>
-                <div>
-                    <router-link
-                        :to="
-                            `/${$lng === 'zh-Hant' ? 'ja-jp' : 'zh-hant'}${$route.path.replace(
-                                `/${$lng.toLowerCase()}`,
-                                '',
-                            )}`
-                        "
-                        >{{ $t('topNav.language') }}</router-link
-                    >
+                <div class="TopNavRight">
+                    <router-link :to="changeLanguageUrl">{{ $t('topNav.language') }}</router-link>
                 </div>
             </div>
         </div>
@@ -40,6 +32,13 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component
 export default class Map extends Vue {
     public rootHeight = 0;
+
+    public get changeLanguageUrl() {
+        return `/${this.$lng === 'zh-Hant' ? 'ja-jp' : 'zh-hant'}${this.$route.path.replace(
+            `/${this.$lng.toLowerCase()}`,
+            '',
+        )}`;
+    }
 
     public mounted() {
         window.addEventListener('resize', this.handleResize.bind(this));
@@ -87,8 +86,13 @@ export default class Map extends Vue {
 }
 
 .TopNavContainer {
+    display: flex;
     margin: 0 auto;
     max-width: 1140px;
+}
+
+.TopNavRight {
+    margin-left: auto;
 }
 
 .Footer {
