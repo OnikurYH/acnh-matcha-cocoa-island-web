@@ -1,8 +1,10 @@
 <template>
     <div id="app" :style="{ height: `${rootHeight}px` }">
-        <div id="nav">
-            <router-link to="/">首頁</router-link> |
-            <router-link to="/map">地圖</router-link>
+        <div id="nav" class="TopNav">
+            <div class="TopNavContainer">
+                <router-link to="/">首頁</router-link> |
+                <router-link to="/map">地圖</router-link>
+            </div>
         </div>
         <router-view />
         <footer class="footer">
@@ -53,9 +55,9 @@ export default class Map extends Vue {
     height: 100vh;
 }
 
-#nav {
+.TopNav {
     background-color: #2c3e50;
-    padding: 30px;
+    padding: 30px 0;
     color: #ffffff;
 
     a {
@@ -69,7 +71,13 @@ export default class Map extends Vue {
     }
 }
 
+.TopNavContainer {
+    margin: 0 auto;
+}
+
 .footer {
+    color: #fff;
+    background-color: #2c3e50;
     padding: 5px 15px 0 15px;
 
     p {
@@ -79,7 +87,7 @@ export default class Map extends Vue {
     }
 
     a {
-        color: rgb(37, 88, 255);
+        color: #42b983;
         text-decoration: none;
     }
 }
