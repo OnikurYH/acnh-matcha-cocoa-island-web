@@ -6,6 +6,7 @@ export interface Location {
     x: number;
     y: number;
     width?: number;
+    description?: string;
 }
 
 export interface LocationArea extends Location {

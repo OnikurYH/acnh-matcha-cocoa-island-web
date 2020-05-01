@@ -46,15 +46,15 @@ export default class MapLocationArea extends Vue {
 
 @keyframes map-location-area-hover {
     0% {
-        border: 3px solid rgb(255, 212, 93);
+        border-color: rgb(255, 212, 93);
     }
 
     50% {
-        border: 3px solid rgb(255, 237, 187);
+        border-color: rgb(255, 237, 187);
     }
 
     100% {
-        border: 3px solid rgb(255, 212, 93);
+        border-color: rgb(255, 212, 93);
     }
 }
 </style>

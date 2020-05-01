@@ -6,6 +6,8 @@
                 <dl class="map-info__detail-list">
                     <dt>地址</dt>
                     <dd>抹茶可可島{{ selectedLocation.address }}</dd>
+                    <dt v-if="selectedLocation.description">詳細</dt>
+                    <dd v-if="selectedLocation.description">{{ selectedLocation.description }}</dd>
                 </dl>
             </div>
             <div v-else>
@@ -147,21 +149,21 @@ export default class Map extends Vue {
         {
             name: 'shop',
             text: '商店',
-            address: '中間道 2 號',
+            address: '中央區商店街 1 號',
             x: 45.5,
             y: 61.5,
         },
         {
             name: 'museum',
             text: '博物館',
-            address: '中間道 3 號',
-            x: 38.5,
-            y: 61.5,
+            address: '半山區博物館道 1 號',
+            x: 51.5,
+            y: 13.5,
         },
         {
             name: 'cloth',
             text: '裁縫屋',
-            address: '中間道 4 號',
+            address: '中央區商店街 2 號',
             x: 47.5,
             y: 66.5,
         },
@@ -288,9 +290,20 @@ export default class Map extends Vue {
             x: 38.4,
             y: 76.5,
             type: 'street',
-            width: 14.8,
+            width: 8.8,
             height: 7.8,
             color: 'rgba(255, 255, 255, 0.5)',
+        },
+        {
+            name: 'public-arts-stage',
+            text: '公眾演藝台',
+            address: '中央區',
+            x: 47.9,
+            y: 76.5,
+            type: 'street',
+            width: 4.9,
+            height: 7.8,
+            color: 'rgba(167, 167, 167, 0.5)',
         },
         {
             name: 'university',
@@ -355,8 +368,52 @@ export default class Map extends Vue {
             y: 74.6,
             type: 'street',
             width: 21.4,
-            height: 10,
+            height: 20,
             color: 'rgba(255, 82, 226, 0.5)',
+        },
+        {
+            name: 'peaches',
+            text: '桃子園',
+            address: '農場',
+            x: 80.1,
+            y: 12.6,
+            type: 'street',
+            width: 8.4,
+            height: 24,
+            color: 'rgba(255, 153, 233, 0.5)',
+        },
+        {
+            name: 'apples',
+            text: '蘋果園',
+            address: '農場',
+            type: 'street',
+            x: 68.1,
+            y: 27.6,
+            width: 11.4,
+            height: 9,
+            color: 'rgba(255, 153, 153, 0.5)',
+        },
+        {
+            name: 'oranges',
+            text: '香橙園',
+            address: '農場',
+            type: 'street',
+            x: 53.1,
+            y: 27.6,
+            width: 14.4,
+            height: 9,
+            color: 'rgba(255, 191, 153, 0.5)',
+        },
+        {
+            name: 'flowers',
+            text: '花之戀',
+            address: '半山區農場',
+            type: 'street',
+            x: 59.1,
+            y: 12.6,
+            width: 20.4,
+            height: 12,
+            color: 'rgba(230, 96, 255, 0.5)',
         },
         {
             name: 'bridge-home',
@@ -446,6 +503,8 @@ export default class Map extends Vue {
 }
 
 .map-info__detail-list {
+    line-height: 1.6;
+
     dt {
         font-weight: bold;
         margin-bottom: 5px;
@@ -453,6 +512,7 @@ export default class Map extends Vue {
 
     dd {
         margin-left: 0;
+        margin-bottom: 5px;
     }
 }
 

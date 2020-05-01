@@ -45,7 +45,7 @@ export default class MapLocation extends Vue {
 
 .MapBubbleText {
     position: relative;
-    background-color: rgba(214, 198, 160, 0.7);
+    background-color: rgba(214, 198, 160, 0.9);
     border-radius: 0.4em;
     padding: 10px 15px;
 }
