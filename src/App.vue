@@ -70,7 +70,6 @@ export default class Map extends Vue {
 
 .TopNav {
     background-color: #2c3e50;
-    padding: 0 30px;
     color: #ffffff;
 
     @media screen and (min-width: 768px) {
