@@ -148,24 +148,26 @@ export default class Map extends Vue {
         },
         {
             name: 'shop',
-            text: '商店',
+            text: 'Nook 商店',
             address: '中央區商店街 1 號',
             x: 45.5,
             y: 61.5,
+            description: '出售各式各樣商品，高價收購 2 件物品，每天 8:00am ～ 10:00pm 營業',
         },
         {
             name: 'museum',
             text: '博物館',
-            address: '半山區博物館道 1 號',
+            address: '山頂博物館道 1 號',
             x: 51.5,
             y: 13.5,
         },
         {
             name: 'cloth',
-            text: '裁縫屋',
+            text: 'ABLE SISTERS 裁縫屋',
             address: '中央區商店街 2 號',
             x: 47.5,
             y: 66.5,
+            description: '出售成衣，每天 9:00am ～ 9:00pm 營業',
         },
         {
             name: 'camp',
@@ -348,6 +350,7 @@ export default class Map extends Vue {
             width: 10.9,
             height: 6.9,
             color: 'rgba(82, 255, 167, 0.5)',
+            description: '全店免費，歡迎帶走物品，每天 24 小時營業',
         },
         {
             name: 'restaurant',
