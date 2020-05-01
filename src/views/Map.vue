@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="map-content" ref="mapContent">
-            <div class="map-scroll">
+            <div class="map-scroll" :style="{ transform: `scale(${this.scale})` }">
                 <div class="map__heading-container">
                     <h1 class="map__heading">抹茶可可島地圖</h1>
                 </div>
@@ -34,6 +34,13 @@
                         @select="handleClickLocation"
                     />
                 </div>
+            </div>
+            <div class="MapZoom">
+                <button class="MapZoomButton _plus" @click="handleZoomIn"><FontAwesomeIcon icon="plus" /></button>
+                <button class="MapZoomButton _reset" @click="handleZoomReset">
+                    <FontAwesomeIcon icon="circle" />
+                </button>
+                <button class="MapZoomButton _minus" @click="handleZoomOut"><FontAwesomeIcon icon="minus" /></button>
             </div>
         </div>
     </div>
@@ -452,6 +459,7 @@ export default class Map extends Vue {
 
     public isDragging = false;
     public selectedLocation: Location | null = null;
+    public scale = 1.0;
 
     public handleMouseDown() {
         this.isDragging = true;
@@ -472,6 +480,18 @@ export default class Map extends Vue {
 
     public handleClickLocation(location: Location) {
         this.selectedLocation = location;
+    }
+
+    public handleZoomIn() {
+        this.scale = Math.min(this.scale + 0.1, 2.0);
+    }
+
+    public handleZoomReset() {
+        this.scale = 1.0;
+    }
+
+    public handleZoomOut() {
+        this.scale = Math.max(this.scale - 0.1, 0.5);
     }
 }
 </script>
@@ -520,9 +540,42 @@ export default class Map extends Vue {
 }
 
 .map-content {
+    position: relative;
     flex: 1;
     overflow: auto;
-    height: calc(100vh - 108px);
+}
+
+.MapZoom {
+    position: fixed;
+    right: 35px;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.MapZoomButton {
+    cursor: pointer;
+    background-color: #eee;
+    border: 1px solid #e1e1e1;
+    border-radius: 5px;
+    line-height: 1;
+    padding: 10px;
+    font-size: 14px;
+
+    &._plus {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+
+    &._minus {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+    }
+
+    &._reset {
+        border-radius: 0;
+    }
 }
 
 .map-scroll {
