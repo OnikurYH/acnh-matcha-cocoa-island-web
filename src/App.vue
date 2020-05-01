@@ -73,6 +73,7 @@ export default class Map extends Vue {
 
 .TopNavContainer {
     margin: 0 auto;
+    max-width: 1140px;
 }
 
 .footer {
