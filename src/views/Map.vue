@@ -4,7 +4,7 @@
             <div v-if="selectedLocation">
                 <h2>{{ selectedLocation.text }}</h2>
                 <dl class="map-info__detail-list">
-                    <dt>地址</dt>
+                    <dt>{{ $t('map.info.address') }}</dt>
                     <dd>抹茶可可島{{ selectedLocation.address }}</dd>
                     <dt v-if="selectedLocation.description">詳細</dt>
                     <dd v-if="selectedLocation.description">{{ selectedLocation.description }}</dd>

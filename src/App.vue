@@ -2,8 +2,21 @@
     <div id="app" :style="{ height: `${rootHeight}px` }">
         <div id="nav" class="TopNav">
             <div class="TopNavContainer">
-                <router-link to="/">首頁</router-link> |
-                <router-link to="/map">地圖</router-link>
+                <div>
+                    <router-link :to="$url('/')">首頁</router-link> |
+                    <router-link :to="$url('/map')">地圖</router-link>
+                </div>
+                <div>
+                    <router-link
+                        :to="
+                            `/${$lng === 'zh-Hant' ? 'ja-jp' : 'zh-hant'}${$route.path.replace(
+                                `/${$lng.toLowerCase()}`,
+                                '',
+                            )}`
+                        "
+                        >{{ $t('topNav.language') }}</router-link
+                    >
+                </div>
             </div>
         </div>
         <router-view />
