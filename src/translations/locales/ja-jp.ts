@@ -60,6 +60,92 @@ export default {
             camp: {
                 text: 'キャンプサイト',
             },
+            ship: {
+                text: 'つねきち',
+            },
+            'home-raymond': {
+                text: 'ジャック',
+            },
+            'home-chrissy': {
+                text: 'クリスチーヌ',
+            },
+            'home-bettina': {
+                text: 'マルコ',
+            },
+            'home-walker': {
+                text: 'ベン',
+            },
+            'home-plucky': {
+                text: 'パタヤ',
+            },
+            'home-cranston': {
+                text: 'トキオ',
+            },
+            'home-agent-s': {
+                text: '２ごう',
+            },
+            'home-hamlet': {
+                text: 'ハムスケ',
+            },
+            'home-biskit': {
+                text: 'ロビン',
+            },
+            'home-kidd': {
+                text: 'やさお',
+            },
+            'home-cocoacaa': {
+                text: 'ココ 緑',
+            },
+        },
+        areas: {
+            shopping: {
+                text: '商店街',
+            },
+            'cultural-exchange': {
+                text: '文化町',
+            },
+            'public-arts-stage': {
+                text: '芸術舞台',
+            },
+            university: {
+                text: '抹茶ココ大学',
+            },
+            'car-park': {
+                text: '公共駐車場',
+            },
+            toilet: {
+                text: '公衆化粧室',
+            },
+            shop: {
+                text: 'コンビニ',
+            },
+            restaurant: {
+                text: 'レストラン',
+            },
+            'coastal-park': {
+                text: '海岸公園',
+            },
+            peaches: {
+                text: 'もも園',
+            },
+            apples: {
+                text: '林檎園',
+            },
+            oranges: {
+                text: 'みかん園',
+            },
+            flowers: {
+                text: '花の愛',
+            },
+            'bridge-home': {
+                text: '住民橋',
+            },
+            'bridge-home-2': {
+                text: '新住民橋',
+            },
+            'bridge-center': {
+                text: '中央橋',
+            },
         },
     },
     topNav: {

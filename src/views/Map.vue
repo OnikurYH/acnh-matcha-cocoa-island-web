@@ -61,7 +61,7 @@ export default class Map extends Vue {
     public areas: LocationArea[] = [
         {
             name: 'shopping',
-            text: '商店街',
+            text: this.$t('map.areas.shopping.text'),
             address: '中央區',
             x: 38.4,
             y: 61,
@@ -72,7 +72,7 @@ export default class Map extends Vue {
         },
         {
             name: 'cultural-exchange',
-            text: '文化交流町',
+            text: this.$t('map.areas.cultural-exchange.text'),
             address: '中央區',
             x: 38.4,
             y: 76.5,
@@ -83,7 +83,7 @@ export default class Map extends Vue {
         },
         {
             name: 'public-arts-stage',
-            text: '公眾演藝台',
+            text: this.$t('map.areas.public-arts-stage.text'),
             address: '中央區',
             x: 47.9,
             y: 76.5,
@@ -94,7 +94,7 @@ export default class Map extends Vue {
         },
         {
             name: 'university',
-            text: '抹茶可可大學',
+            text: this.$t('map.areas.university.text'),
             address: '中央區大學道 2-3 號',
             x: 67,
             y: 75.2,
@@ -105,7 +105,7 @@ export default class Map extends Vue {
         },
         {
             name: 'car-park',
-            text: '公眾停車場',
+            text: this.$t('map.areas.car-park.text'),
             address: '中央區大學道 1 號',
             x: 56.9,
             y: 75.2,
@@ -116,7 +116,7 @@ export default class Map extends Vue {
         },
         {
             name: 'toilet',
-            text: '公共廁所',
+            text: this.$t('map.areas.toilet.text'),
             address: '中央區大學道 4 號 / 中央區中間道 1 號',
             x: 68.4,
             y: 59.8,
@@ -127,7 +127,7 @@ export default class Map extends Vue {
         },
         {
             name: 'shop',
-            text: '便利店',
+            text: this.$t('map.areas.shop.text'),
             address: '中央區大學道 5 號 / 中央區中間道 2 - 3 號',
             x: 72.9,
             y: 59.8,
@@ -139,7 +139,7 @@ export default class Map extends Vue {
         },
         {
             name: 'restaurant',
-            text: '餐廳',
+            text: this.$t('map.areas.restaurant.text'),
             address: '中央區中間道 4 - 6 號',
             x: 68.4,
             y: 41.8,
@@ -150,7 +150,7 @@ export default class Map extends Vue {
         },
         {
             name: 'coastal-park',
-            text: '海岸公園',
+            text: this.$t('map.areas.coastal-park.text'),
             address: '中央區傑克街 3 號',
             x: 13.1,
             y: 74.6,
@@ -161,7 +161,7 @@ export default class Map extends Vue {
         },
         {
             name: 'peaches',
-            text: '桃子園',
+            text: this.$t('map.areas.peaches.text'),
             address: '農場',
             x: 80.1,
             y: 12.6,
@@ -172,7 +172,7 @@ export default class Map extends Vue {
         },
         {
             name: 'apples',
-            text: '蘋果園',
+            text: this.$t('map.areas.apples.text'),
             address: '農場',
             type: 'street',
             x: 68.1,
@@ -183,7 +183,7 @@ export default class Map extends Vue {
         },
         {
             name: 'oranges',
-            text: '香橙園',
+            text: this.$t('map.areas.oranges.text'),
             address: '農場',
             type: 'street',
             x: 53.1,
@@ -194,7 +194,7 @@ export default class Map extends Vue {
         },
         {
             name: 'flowers',
-            text: '花之戀',
+            text: this.$t('map.areas.flowers.text'),
             address: '半山區農場',
             type: 'street',
             x: 59.1,
@@ -205,7 +205,7 @@ export default class Map extends Vue {
         },
         {
             name: 'bridge-home',
-            text: '居民橋',
+            text: this.$t('map.areas.bridge-home.text'),
             address: '住宅區',
             x: 35.2,
             y: 71.6,
@@ -215,7 +215,7 @@ export default class Map extends Vue {
         },
         {
             name: 'bridge-home-2',
-            text: '新居民橋',
+            text: this.$t('map.areas.bridge-home-2.text'),
             address: '住宅區',
             x: 44.1,
             y: 49.2,
@@ -225,7 +225,7 @@ export default class Map extends Vue {
         },
         {
             name: 'bridge-center',
-            text: '中央橋',
+            text: this.$t('map.areas.bridge-center.text'),
             address: '住宅區',
             x: 61.3,
             y: 43.7,
@@ -367,14 +367,14 @@ export default class Map extends Vue {
             },
             {
                 name: 'ship',
-                text: '狐利',
+                text: this.$t('map.buildings.ship.text'),
                 address: '後岸海灘',
                 x: 47,
                 y: 1.5,
             },
             {
                 name: 'home',
-                text: '傑克家',
+                text: this.$t('map.buildings.home-raymond.text'),
                 suffix: '1',
                 address: '傑克街 1 號',
                 x: 14,
@@ -382,7 +382,7 @@ export default class Map extends Vue {
             },
             {
                 name: 'home',
-                text: '克莉琪家',
+                text: this.$t('map.buildings.home-chrissy.text'),
                 suffix: '2',
                 address: '傑克街 2 號',
                 x: 22,
@@ -390,7 +390,7 @@ export default class Map extends Vue {
             },
             {
                 name: 'home',
-                text: '丸子家',
+                text: this.$t('map.buildings.home-bettina.text'),
                 suffix: '3',
                 address: '丸阿街 1 號',
                 x: 14,
@@ -398,7 +398,7 @@ export default class Map extends Vue {
             },
             {
                 name: 'home',
-                text: '阿笨家',
+                text: this.$t('map.buildings.home-walker.text'),
                 suffix: '4',
                 address: '丸阿街 2 號',
                 x: 22,
@@ -406,7 +406,7 @@ export default class Map extends Vue {
             },
             {
                 name: 'home',
-                text: '帕塔雅家',
+                text: this.$t('map.buildings.home-plucky.text'),
                 suffix: '5',
                 address: '橫民街 1 號',
                 x: 14,
@@ -414,7 +414,7 @@ export default class Map extends Vue {
             },
             {
                 name: 'home',
-                text: '朱祿家',
+                text: this.$t('map.buildings.home-cranston.text'),
                 suffix: '6',
                 address: '橫民街 2 號',
                 x: 22,
@@ -422,7 +422,7 @@ export default class Map extends Vue {
             },
             {
                 name: 'home',
-                text: '阿二家',
+                text: this.$t('map.buildings.home-agent-s.text'),
                 suffix: '7',
                 address: '居民中間街 2 號',
                 x: 20,
@@ -430,7 +430,7 @@ export default class Map extends Vue {
             },
             {
                 name: 'home',
-                text: '哈姆家',
+                text: this.$t('map.buildings.home-hamlet.text'),
                 suffix: '8',
                 address: '居民中間街 3 號',
                 x: 32,
@@ -438,7 +438,7 @@ export default class Map extends Vue {
             },
             {
                 name: 'home',
-                text: '羅賓家',
+                text: this.$t('map.buildings.home-biskit.text'),
                 suffix: '9',
                 address: '橫民街 3 號',
                 x: 30,
@@ -446,7 +446,7 @@ export default class Map extends Vue {
             },
             {
                 name: 'home',
-                text: '文青家',
+                text: this.$t('map.buildings.home-kidd.text'),
                 suffix: '10',
                 address: '橫民街 4 號',
                 x: 39,
@@ -454,7 +454,7 @@ export default class Map extends Vue {
             },
             {
                 name: 'my-home',
-                text: 'CocoaCaa 家',
+                text: this.$t('map.buildings.home-cocoacaa.text'),
                 suffix: '10',
                 address: '半山區',
                 x: 25,
