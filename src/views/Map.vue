@@ -354,8 +354,8 @@ export default class Map extends Vue {
                 name: 'cloth',
                 text: this.$t('map.buildings.cloth.text'),
                 address: '中央區商店街 2 號',
-                x: 47.5,
-                y: 66.5,
+                x: 38.9,
+                y: 61.5,
                 description: '出售成衣，每天 9:00am ～ 9:00pm 營業',
             },
             {
