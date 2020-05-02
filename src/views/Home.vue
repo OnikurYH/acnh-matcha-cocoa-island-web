@@ -2,7 +2,7 @@
     <div class="HomeContainer">
         <div class="Home">
             <video class="HomeBackgroundVideo" muted autoplay loop playsinline>
-                <source src="../assets/videos/front-video.mp4" type="video/mp4" />
+                <source src="../assets/videos/home-video.mp4" type="video/mp4" />
             </video>
             <div class="HomeBackgroundVideoOverlay" />
             <div class="HomeBannerContent">
