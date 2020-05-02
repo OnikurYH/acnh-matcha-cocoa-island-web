@@ -507,7 +507,7 @@ export default class Map extends Vue {
 </script>
 <style lang="scss">
 .map {
-    flex: 1
+    flex: 1;
     background-color: #76c8b5;
     display: flex;
     overflow: hidden;
