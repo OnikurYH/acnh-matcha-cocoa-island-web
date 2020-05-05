@@ -78,8 +78,8 @@ export default {
             'home-plucky': {
                 text: 'パタヤ',
             },
-            'home-cranston': {
-                text: 'トキオ',
+            'home-marshal': {
+                text: 'ジュン',
             },
             'home-agent-s': {
                 text: '２ごう',

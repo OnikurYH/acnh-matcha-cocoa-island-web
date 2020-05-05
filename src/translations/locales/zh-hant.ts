@@ -78,8 +78,8 @@ export default {
             'home-plucky': {
                 text: '帕塔雅家',
             },
-            'home-cranston': {
-                text: '朱祿家',
+            'home-marshal': {
+                text: '小潤家',
             },
             'home-agent-s': {
                 text: '阿二家',
