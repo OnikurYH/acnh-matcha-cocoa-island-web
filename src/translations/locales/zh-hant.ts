@@ -66,8 +66,8 @@ export default {
             'home-raymond': {
                 text: '傑克家',
             },
-            'home-chrissy': {
-                text: '克莉琪家',
+            'home-rudy': {
+                text: '茶茶家',
             },
             'home-bettina': {
                 text: '丸子家',

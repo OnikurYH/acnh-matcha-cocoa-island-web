@@ -382,7 +382,7 @@ export default class Map extends Vue {
             },
             {
                 name: 'home',
-                text: this.$t('map.buildings.home-chrissy.text'),
+                text: this.$t('map.buildings.home-rudy.text'),
                 suffix: '2',
                 address: '傑克街 2 號',
                 x: 22,

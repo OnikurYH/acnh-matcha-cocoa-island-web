@@ -66,8 +66,8 @@ export default {
             'home-raymond': {
                 text: 'ジャック',
             },
-            'home-chrissy': {
-                text: 'クリスチーヌ',
+            'home-rudy': {
+                text: 'チャス',
             },
             'home-bettina': {
                 text: 'マルコ',
