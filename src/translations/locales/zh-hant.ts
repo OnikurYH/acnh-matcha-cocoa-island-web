@@ -87,11 +87,11 @@ export default {
             'home-hamlet': {
                 text: '哈姆家',
             },
-            'home-biskit': {
-                text: '羅賓家',
+            'home-jay': {
+                text: '阿燕家',
             },
-            'home-kidd': {
-                text: '文青家',
+            'home-goldie': {
+                text: '牛奶糖家',
             },
             'home-cocoacaa': {
                 text: 'CocoaCaa 家',

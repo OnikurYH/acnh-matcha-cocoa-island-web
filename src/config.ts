@@ -259,8 +259,8 @@ export function getBuildings(t: TFunction): Location[] {
             text: t('map.buildings.street-museum-road.text'),
             address: '中央區',
             x: 47.2,
-            y: 43.1,
-            width: 129,
+            y: 23.1,
+            width: 217,
         },
         {
             name: 'center',
@@ -288,7 +288,7 @@ export function getBuildings(t: TFunction): Location[] {
             name: 'museum',
             text: t('map.buildings.museum.text'),
             address: '山頂博物館道 1 號',
-            x: 51.5,
+            x: 50,
             y: 13.5,
         },
         {
@@ -316,7 +316,7 @@ export function getBuildings(t: TFunction): Location[] {
         {
             name: 'home',
             text: t('map.buildings.home-raymond.text'),
-            suffix: '1',
+            suffix: 'raymond',
             address: '傑克街 1 號',
             x: 14,
             y: 65.5,
@@ -324,7 +324,7 @@ export function getBuildings(t: TFunction): Location[] {
         {
             name: 'home',
             text: t('map.buildings.home-rudy.text'),
-            suffix: '2',
+            suffix: 'rudy',
             address: '傑克街 2 號',
             x: 22,
             y: 65.5,
@@ -332,7 +332,7 @@ export function getBuildings(t: TFunction): Location[] {
         {
             name: 'home',
             text: t('map.buildings.home-bettina.text'),
-            suffix: '3',
+            suffix: 'bettina',
             address: '丸阿街 1 號',
             x: 14,
             y: 53,
@@ -340,7 +340,7 @@ export function getBuildings(t: TFunction): Location[] {
         {
             name: 'home',
             text: t('map.buildings.home-walker.text'),
-            suffix: '4',
+            suffix: 'walker',
             address: '丸阿街 2 號',
             x: 22,
             y: 53,
@@ -348,7 +348,7 @@ export function getBuildings(t: TFunction): Location[] {
         {
             name: 'home',
             text: t('map.buildings.home-plucky.text'),
-            suffix: '5',
+            suffix: 'plucky',
             address: '橫民街 1 號',
             x: 14,
             y: 40,
@@ -356,7 +356,7 @@ export function getBuildings(t: TFunction): Location[] {
         {
             name: 'home',
             text: t('map.buildings.home-marshal.text'),
-            suffix: '6',
+            suffix: 'marshal',
             address: '橫民街 2 號',
             x: 22,
             y: 40,
@@ -364,7 +364,7 @@ export function getBuildings(t: TFunction): Location[] {
         {
             name: 'home',
             text: t('map.buildings.home-agent-s.text'),
-            suffix: '7',
+            suffix: '7agent-s',
             address: '居民中間街 2 號',
             x: 20,
             y: 33,
@@ -372,23 +372,23 @@ export function getBuildings(t: TFunction): Location[] {
         {
             name: 'home',
             text: t('map.buildings.home-hamlet.text'),
-            suffix: '8',
+            suffix: 'hamlet',
             address: '居民中間街 3 號',
             x: 32,
             y: 33,
         },
         {
             name: 'home',
-            text: t('map.buildings.home-biskit.text'),
-            suffix: '9',
+            text: t('map.buildings.home-jay.text'),
+            suffix: 'jay',
             address: '橫民街 3 號',
             x: 30,
             y: 40,
         },
         {
             name: 'home',
-            text: t('map.buildings.home-kidd.text'),
-            suffix: '10',
+            text: t('map.buildings.home-goldie.text'),
+            suffix: 'goldie',
             address: '橫民街 4 號',
             x: 39,
             y: 40,

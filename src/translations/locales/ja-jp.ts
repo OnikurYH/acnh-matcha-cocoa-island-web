@@ -87,11 +87,11 @@ export default {
             'home-hamlet': {
                 text: 'ハムスケ',
             },
-            'home-biskit': {
-                text: 'ロビン',
+            'home-jay': {
+                text: 'ツバクロ',
             },
-            'home-kidd': {
-                text: 'やさお',
+            'home-goldie': {
+                text: 'キャラメル',
             },
             'home-cocoacaa': {
                 text: 'ココ 緑',
