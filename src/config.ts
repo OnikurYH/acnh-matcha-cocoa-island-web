@@ -358,6 +358,7 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
             x: 14,
             y: 65.5,
             svg: locationHome,
+            haveIcon: true,
         },
         {
             name: 'home',
@@ -367,6 +368,7 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
             x: 22,
             y: 65.5,
             svg: locationHome,
+            haveIcon: true,
         },
         {
             name: 'home',
@@ -376,6 +378,7 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
             x: 14,
             y: 53,
             svg: locationHome,
+            haveIcon: true,
         },
         {
             name: 'home',
@@ -385,6 +388,7 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
             x: 22,
             y: 53,
             svg: locationHome,
+            haveIcon: true,
         },
         {
             name: 'home',
@@ -394,6 +398,7 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
             x: 14,
             y: 40,
             svg: locationHome,
+            haveIcon: true,
         },
         {
             name: 'home',
@@ -403,15 +408,17 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
             x: 22,
             y: 40,
             svg: locationHome,
+            haveIcon: true,
         },
         {
             name: 'home',
             text: t('map.buildings.home-agent-s.text'),
-            suffix: '7agent-s',
+            suffix: 'agent-s',
             address: '居民中間街 2 號',
             x: 20,
             y: 33,
             svg: locationHome,
+            haveIcon: true,
         },
         {
             name: 'home',
@@ -421,6 +428,7 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
             x: 32,
             y: 33,
             svg: locationHome,
+            haveIcon: true,
         },
         {
             name: 'home',
@@ -430,6 +438,7 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
             x: 30,
             y: 40,
             svg: locationHome,
+            haveIcon: true,
         },
         {
             name: 'home',
@@ -439,15 +448,16 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
             x: 39,
             y: 40,
             svg: locationHome,
+            haveIcon: true,
         },
         {
             name: 'my-home',
             text: t('map.buildings.home-cocoacaa.text'),
-            suffix: '10',
             address: '半山區',
             x: 25,
             y: 13,
             svg: locationMyHome,
+            haveIcon: true,
         },
     ];
 }

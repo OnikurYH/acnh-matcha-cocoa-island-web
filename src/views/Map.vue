@@ -2,7 +2,18 @@
     <div class="map" @mousedown="handleMouseDown" @mousemove="handleMouseMove" @mouseup="handleMouseUp">
         <div class="map-info">
             <div v-if="selectedLocation">
-                <h2>{{ selectedLocation.text }}</h2>
+                <img
+                    class="map-info__icon"
+                    v-if="selectedLocation.haveIcon"
+                    :src="
+                        `/location-icons/${selectedLocation.name}${
+                            selectedLocation.suffix ? `-${selectedLocation.suffix}` : ''
+                        }.png`
+                    "
+                />
+                <h2 class="map-info__text">
+                    {{ selectedLocation.text }}
+                </h2>
                 <dl class="map-info__detail-list">
                     <dt>{{ $t('map.info.address') }}</dt>
                     <dd>{{ $t('islandName') }}{{ selectedLocation.address }}</dd>
@@ -181,6 +192,17 @@ export default class Map extends Vue {
         width: 10vw;
         min-width: 200px;
     }
+}
+
+.map-info__icon {
+    margin-top: 16px;
+    width: 50px;
+    height: auto;
+}
+
+.map-info__text {
+    margin-top: 16px;
+    margin-bottom: 16px;
 }
 
 .map-info__detail-list {

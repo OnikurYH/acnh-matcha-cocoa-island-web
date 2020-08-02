@@ -11,6 +11,7 @@ export interface Location {
 
 export interface LocationBuilding extends Location {
     svg: any;
+    haveIcon?: boolean;
 }
 
 export interface LocationArea extends Location {
