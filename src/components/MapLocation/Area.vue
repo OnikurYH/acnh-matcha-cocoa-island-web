@@ -1,12 +1,15 @@
 <template>
     <MapLocationBase
         :value="value"
+        :is-hovering="isHovering"
         @select="$emit('select', { ...value })"
         :extra-style="{ width: `${value.width}%`, height: `${value.height}%` }"
     >
         <div
             :class="['MapLocationArea', `_${value.name}`, `_${value.type}`]"
             :style="{ 'background-color': value.color }"
+            @mouseenter="isHovering = true"
+            @mouseleave="isHovering = false"
         />
     </MapLocationBase>
 </template>
@@ -22,6 +25,8 @@ import MapLocationBase from './Base.vue';
 })
 export default class MapLocationArea extends Vue {
     @Prop() private value!: LocationArea;
+
+    private isHovering = false;
 }
 </script>
 <style lang="scss">

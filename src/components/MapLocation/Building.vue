@@ -1,10 +1,15 @@
 <template>
-    <MapLocationBase :value="value" @select="$emit('select', { ...value })">
-        <div :class="['MapLocationBuildingImage', `_${value.name}`]" v-html="value.svg" />
+    <MapLocationBase
+        class="MapLocationBuilding"
+        :value="value"
+        :is-hovering="isHovering"
+        @select="$emit('select', { ...value })"
+    >
+        <div ref="img" :class="['MapLocationBuildingImage', `_${value.name}`]" v-html="value.svg" />
     </MapLocationBase>
 </template>
 <script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+import { Component, Prop, Vue, Ref } from 'vue-property-decorator';
 import { Location } from '../../types';
 import MapLocationBase from './Base.vue';
 
@@ -15,6 +20,27 @@ import MapLocationBase from './Base.vue';
 })
 export default class MapLocationBuilding extends Vue {
     @Prop() private value!: Location;
+    @Ref('img') private img!: HTMLDivElement;
+
+    private isHovering = false;
+
+    public mounted() {
+        this.img.addEventListener('mouseenter', this.handleMouseEnter.bind(this));
+        this.img.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
+    }
+
+    public beforeDestroy() {
+        this.img.removeEventListener('mouseenter', this.handleMouseEnter.bind(this));
+        this.img.removeEventListener('mouseleave', this.handleMouseLeave.bind(this));
+    }
+
+    public handleMouseEnter() {
+        this.isHovering = true;
+    }
+
+    public handleMouseLeave() {
+        this.isHovering = false;
+    }
 }
 </script>
 <style lang="scss">
@@ -35,8 +61,13 @@ $home-building-width: 37;
     }
 }
 
-.MapLocationBuildingImage {
+.MapLocationBuilding {
     pointer-events: none;
+
+    path,
+    circle {
+        pointer-events: visibleFill;
+    }
 }
 
 @keyframes map-location-hover {

@@ -9,10 +9,8 @@
         }"
         @click="$emit('select', { ...value })"
         @touchstart="$emit('select', { ...value })"
-        @mouseenter="isHover = true"
-        @mouseleave="isHover = false"
     >
-        <MapBubble :value="value.text" :show="isHover" />
+        <MapBubble :value="value.text" :show="isHovering" />
         <slot />
     </div>
 </template>
@@ -29,8 +27,7 @@ import MapBubble from './../MapBubble.vue';
 export default class MapLocation extends Vue {
     @Prop() private value!: Location;
     @Prop() private extraStyle!: CSSStyleDeclaration;
-
-    private isHover = false;
+    @Prop() private isHovering!: boolean;
 }
 </script>
 <style lang="scss">
