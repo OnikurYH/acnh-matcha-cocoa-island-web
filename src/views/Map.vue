@@ -143,6 +143,8 @@ export default class Map extends Vue {
 
     public handleZoomReset() {
         this.scale = 1.0;
+        this.x = 0;
+        this.y = 0;
     }
 
     public handleZoomOut() {
