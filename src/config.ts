@@ -1,5 +1,25 @@
 import { TFunction } from 'i18next';
-import { LocationArea, Location } from './types';
+import { LocationArea, LocationBuilding } from './types';
+
+import locationAirport from './assets/static-locations/location-airport.svg';
+import locationCamp from './assets/static-locations/location-camp.svg';
+import locationCenter from './assets/static-locations/location-center.svg';
+import locationCloth from './assets/static-locations/location-cloth.svg';
+import locationHome from './assets/static-locations/location-home.svg';
+import locationMuseum from './assets/static-locations/location-museum.svg';
+import locationMyHome from './assets/static-locations/location-my-home.svg';
+import locationShip from './assets/static-locations/location-ship.svg';
+import locationShop from './assets/static-locations/location-shop.svg';
+import locationStreetAirportRoad from './assets/static-locations/location-street-airport-road.svg';
+import locationStreetCenterRoad from './assets/static-locations/location-street-center-road.svg';
+import locationStreetEastCoastalRoad from './assets/static-locations/location-street-east-coastal-road.svg';
+import locationFarmRoad from './assets/static-locations/location-street-farm-road.svg';
+import locationHome12 from './assets/static-locations/location-street-home-1-2.svg';
+import locationHome34 from './assets/static-locations/location-street-home-3-4.svg';
+import locationHome510 from './assets/static-locations/location-street-home-5-10.svg';
+import locationHomeCenter from './assets/static-locations/location-street-home-center.svg';
+import locationMuseumRoad from './assets/static-locations/location-street-museum-road.svg';
+import locationUniversityRoad from './assets/static-locations/location-street-university-road.svg';
 
 export function getAreas(t: TFunction): LocationArea[] {
     return [
@@ -180,7 +200,7 @@ export function getAreas(t: TFunction): LocationArea[] {
     ];
 }
 
-export function getBuildings(t: TFunction): Location[] {
+export function getBuildings(t: TFunction): LocationBuilding[] {
     return [
         {
             name: 'street-home-1-2',
@@ -189,6 +209,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 13,
             y: 70.7,
             width: 203,
+            svg: locationHome12,
         },
         {
             name: 'street-home-3-4',
@@ -197,6 +218,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 13,
             y: 60,
             width: 123,
+            svg: locationHome34,
         },
         {
             name: 'street-home-5-10',
@@ -205,6 +227,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 13,
             y: 48.5,
             width: 285,
+            svg: locationHome510,
         },
         {
             name: 'street-home-center',
@@ -213,6 +236,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 26.4,
             y: 32.5,
             width: 30,
+            svg: locationHomeCenter,
         },
         {
             name: 'street-university-road',
@@ -221,6 +245,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 53.4,
             y: 67.5,
             width: 286,
+            svg: locationUniversityRoad,
         },
         {
             name: 'street-airport-road',
@@ -229,6 +254,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 53.4,
             y: 75.2,
             width: 30,
+            svg: locationStreetAirportRoad,
         },
         {
             name: 'street-farm-road',
@@ -237,6 +263,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 63.8,
             y: 43.3,
             width: 42,
+            svg: locationFarmRoad,
         },
         {
             name: 'street-east-coastal-road',
@@ -245,6 +272,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 84.5,
             y: 42,
             width: 30,
+            svg: locationStreetEastCoastalRoad,
         },
         {
             name: 'street-center-road',
@@ -253,6 +281,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 68.4,
             y: 48,
             width: 148,
+            svg: locationStreetCenterRoad,
         },
         {
             name: 'street-museum-road',
@@ -261,6 +290,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 47.2,
             y: 23.1,
             width: 217,
+            svg: locationMuseumRoad,
         },
         {
             name: 'center',
@@ -268,6 +298,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '中間道 1 號',
             x: 55.5,
             y: 60.5,
+            svg: locationCenter,
         },
         {
             name: 'airport',
@@ -275,6 +306,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '機場道 1 號',
             x: 55.5,
             y: 87.5,
+            svg: locationAirport,
         },
         {
             name: 'shop',
@@ -283,6 +315,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 45.5,
             y: 61.5,
             description: '出售各式各樣商品，高價收購 2 件物品，每天 8:00am ～ 10:00pm 營業',
+            svg: locationShop,
         },
         {
             name: 'museum',
@@ -290,6 +323,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '山頂博物館道 1 號',
             x: 50,
             y: 13.5,
+            svg: locationMuseum,
         },
         {
             name: 'cloth',
@@ -298,6 +332,7 @@ export function getBuildings(t: TFunction): Location[] {
             x: 38.9,
             y: 61.5,
             description: '出售成衣，每天 9:00am ～ 9:00pm 營業',
+            svg: locationCloth,
         },
         {
             name: 'camp',
@@ -305,6 +340,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '居民中間街 1 號',
             x: 30,
             y: 51.5,
+            svg: locationCamp,
         },
         {
             name: 'ship',
@@ -312,6 +348,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '後岸海灘',
             x: 47,
             y: 1.5,
+            svg: locationShip,
         },
         {
             name: 'home',
@@ -320,6 +357,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '傑克街 1 號',
             x: 14,
             y: 65.5,
+            svg: locationHome,
         },
         {
             name: 'home',
@@ -328,6 +366,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '傑克街 2 號',
             x: 22,
             y: 65.5,
+            svg: locationHome,
         },
         {
             name: 'home',
@@ -336,6 +375,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '丸阿街 1 號',
             x: 14,
             y: 53,
+            svg: locationHome,
         },
         {
             name: 'home',
@@ -344,6 +384,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '丸阿街 2 號',
             x: 22,
             y: 53,
+            svg: locationHome,
         },
         {
             name: 'home',
@@ -352,6 +393,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '橫民街 1 號',
             x: 14,
             y: 40,
+            svg: locationHome,
         },
         {
             name: 'home',
@@ -360,6 +402,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '橫民街 2 號',
             x: 22,
             y: 40,
+            svg: locationHome,
         },
         {
             name: 'home',
@@ -368,6 +411,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '居民中間街 2 號',
             x: 20,
             y: 33,
+            svg: locationHome,
         },
         {
             name: 'home',
@@ -376,6 +420,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '居民中間街 3 號',
             x: 32,
             y: 33,
+            svg: locationHome,
         },
         {
             name: 'home',
@@ -384,6 +429,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '橫民街 3 號',
             x: 30,
             y: 40,
+            svg: locationHome,
         },
         {
             name: 'home',
@@ -392,6 +438,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '橫民街 4 號',
             x: 39,
             y: 40,
+            svg: locationHome,
         },
         {
             name: 'my-home',
@@ -400,6 +447,7 @@ export function getBuildings(t: TFunction): Location[] {
             address: '半山區',
             x: 25,
             y: 13,
+            svg: locationMyHome,
         },
     ];
 }

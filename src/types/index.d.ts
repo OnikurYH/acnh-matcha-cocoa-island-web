@@ -9,6 +9,10 @@ export interface Location {
     description?: string;
 }
 
+export interface LocationBuilding extends Location {
+    svg: any;
+}
+
 export interface LocationArea extends Location {
     type: 'street' | 'bridge';
     width: number;

@@ -1,6 +1,6 @@
 <template>
     <MapLocationBase :value="value" @select="$emit('select', { ...value })">
-        <img :class="['MapLocationBuildingImage', `_${value.name}`]" :src="`locations/location-${value.name}.svg`" />
+        <div :class="['MapLocationBuildingImage', `_${value.name}`]" v-html="value.svg" />
     </MapLocationBase>
 </template>
 <script lang="ts">
