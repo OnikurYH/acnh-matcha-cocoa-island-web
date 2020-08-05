@@ -1,5 +1,5 @@
 <template>
-    <div class="map" @mousedown="handleMouseDown" @mousemove="handleMouseMove" @mouseup="handleMouseUp">
+    <div class="map">
         <div class="map-info">
             <div v-if="selectedLocation">
                 <img
@@ -91,10 +91,19 @@ export default class Map extends Vue {
     public mounted() {
         this.throttleHandleScroll = throttle(this.handleScroll.bind(this), 60 / 1000);
         this.$el.addEventListener('wheel', this.throttleHandleScroll);
+
+        this.$el.addEventListener('pointerdown', this.handleMouseDown.bind(this));
+        window.addEventListener('pointermove', this.handleMouseMove.bind(this));
+        this.$el.addEventListener('pointerup', this.handleMouseUp.bind(this));
+        window.addEventListener('pointercancel', () => console.log('fff'));
     }
 
     public beforeDestroy() {
         this.$el.removeEventListener('wheel', this.throttleHandleScroll);
+
+        this.$el.removeEventListener('pointerdown', this.handleMouseDown.bind(this));
+        window.removeEventListener('pointermove', this.handleMouseMove.bind(this));
+        this.$el.removeEventListener('pointerup', this.handleMouseUp.bind(this));
     }
 
     public get selectedLocation() {
@@ -109,7 +118,7 @@ export default class Map extends Vue {
         this.isDragging = true;
     }
 
-    public handleMouseMove(ev: MouseEvent) {
+    public handleMouseMove(ev: PointerEvent) {
         if (!this.isDragging) {
             return;
         }
@@ -171,7 +180,7 @@ export default class Map extends Vue {
     overflow: hidden;
     flex-direction: column-reverse;
     width: 100vw;
-    touch-action: manipulation;
+    touch-action: none;
 
     @media screen and (min-width: 768px) {
         flex-direction: row;
