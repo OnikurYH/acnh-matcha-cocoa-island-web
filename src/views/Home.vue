@@ -144,6 +144,10 @@ export default class Home extends Vue {}
     @media screen and (min-width: 768px) {
         flex-direction: row;
         margin-bottom: 60px;
+
+        &._invert {
+            flex-direction: row;
+        }
     }
 }
 
