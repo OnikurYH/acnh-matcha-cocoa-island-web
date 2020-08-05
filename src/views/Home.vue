@@ -1,14 +1,33 @@
 <template>
     <div class="HomeContainer">
-        <div class="Home">
-            <video class="HomeBackgroundVideo" muted autoplay loop playsinline>
-                <source src="../assets/videos/home-video.mp4" type="video/mp4" />
-            </video>
-            <div class="HomeBackgroundVideoOverlay" />
-            <div class="HomeBannerContent">
-                <h1 class="HomeHeading" v-html="$t('home.heading')" />
-                <router-link class="HomeCTA" :to="`${$url('/map')}`">{{ $t('home.cta') }}</router-link>
+        <div class="HomeHeader">
+            <div class="HomeHeaderUpper">
+                <video class="HomeHeaderBackgroundVideo" muted autoplay loop playsinline>
+                    <source src="../assets/videos/home-video.mp4" type="video/mp4" />
+                </video>
+                <div class="HomeHeaderBackgroundVideoOverlay" />
+                <div class="HomeHeaderBannerContent">
+                    <h1 class="HomeHeaderHeading" v-html="$t('home.heading')" />
+                    <router-link class="HomeHeaderCTA" :to="`${$url('/map')}`">{{ $t('home.cta') }}</router-link>
+                </div>
             </div>
+            <div class="HomeHeaderLower">
+                <FontAwesomeIcon class="HomeHeaderLowerArrow" icon="arrow-down" />
+            </div>
+        </div>
+        <div class="HomeMediaSection ContentContainer">
+            <img class="HomeMediaSectionLeft" src="/intro.png" />
+            <div class="HomeMediaSectionRight">
+                <h2 class="HomeMediaSectionHeading">{{ $t('home.intro.heading') }}</h2>
+                <p>{{ $t('home.intro.content') }}</p>
+            </div>
+        </div>
+        <div class="HomeMediaSection _invert ContentContainer">
+            <div class="HomeMediaSectionLeft">
+                <h2 class="HomeMediaSectionHeading">{{ $t('home.cocoacaa.heading') }}</h2>
+                <p>{{ $t('home.cocoacaa.content') }}</p>
+            </div>
+            <img class="HomeMediaSectionRight" src="/cocoacaa.png" />
         </div>
     </div>
 </template>
@@ -23,18 +42,52 @@ export default class Home extends Vue {}
 <style lang="scss">
 .HomeContainer {
     flex: 1;
+    overflow: auto;
 }
 
-.Home {
+.HomeHeader {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-bottom: 60px;
+}
+
+.HomeHeaderUpper {
+    position: relative;
+    flex: 1;
     display: flex;
     align-items: center;
     justify-content: center;
-    position: relative;
-    height: 100%;
     color: #fff;
 }
 
-.HomeHeading {
+.HomeHeaderLower {
+    text-align: center;
+    padding: 10px 0;
+    text-align: center;
+    font-size: 26px;
+    color: #42b983;
+}
+
+.HomeHeaderLowerArrow {
+    animation: HomeHeaderLowerArrow 1s forwards infinite;
+}
+
+@keyframes HomeHeaderLowerArrow {
+    0% {
+        transform: translateY(-5px);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+.HomeHeaderHeading {
     font-size: 48px;
     margin-top: 0;
     line-height: 1.3;
@@ -45,7 +98,7 @@ export default class Home extends Vue {}
     }
 }
 
-.HomeCTA {
+.HomeHeaderCTA {
     background-color: #42b983;
     padding: 15px 35px;
     border-radius: 5px;
@@ -59,8 +112,8 @@ export default class Home extends Vue {}
     }
 }
 
-.HomeBackgroundVideo,
-.HomeBackgroundVideoOverlay {
+.HomeHeaderBackgroundVideo,
+.HomeHeaderBackgroundVideoOverlay {
     position: absolute;
     left: 0;
     top: 0;
@@ -69,12 +122,76 @@ export default class Home extends Vue {}
     object-fit: cover;
 }
 
-.HomeBackgroundVideoOverlay {
+.HomeHeaderBackgroundVideoOverlay {
     background-color: rgba(0, 0, 0, 0.3);
 }
 
-.HomeBannerContent {
+.HomeHeaderBannerContent {
     position: relative;
     text-align: center;
+}
+
+.HomeMediaSection {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 20px;
+
+    &._invert {
+        flex-direction: column-reverse;
+    }
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+        margin-bottom: 60px;
+    }
+}
+
+.HomeMediaSection:not(._invert) .HomeMediaSectionLeft,
+.HomeMediaSection._invert .HomeMediaSectionRight {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    overflow: hidden;
+    margin-top: 0;
+
+    @media screen and (min-width: 768px) {
+        width: 400px;
+        min-width: 400px;
+        border-radius: 5px;
+    }
+}
+
+.HomeMediaSectionRight {
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 20px;
+
+    @media screen and (min-width: 768px) {
+        margin-right: 0;
+    }
+}
+
+.HomeMediaSection._invert .HomeMediaSectionLeft {
+    flex: 1;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    @media screen and (min-width: 768px) {
+        margin-top: 0;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+.HomeMediaSectionHeading {
+    margin-top: 0;
+    color: #2c3e50;
+    font-size: 24px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 30px;
+    }
 }
 </style>

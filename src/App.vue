@@ -1,7 +1,7 @@
 <template>
     <div id="app" :style="{ height: `${rootHeight}px` }">
         <div id="nav" class="TopNav">
-            <div class="TopNavContainer">
+            <div class="TopNavContainer ContentContainer">
                 <div class="TopNavLeft">
                     <router-link class="TopNavLogoLink" :to="$url('/')"
                         ><img class="TopNavLogo" src="./assets/images/logo.png" width="382" height="365" alt="Logo"
@@ -66,6 +66,8 @@ export default class Map extends Vue {
     width: 100vw;
     height: 100vh;
     overflow-x: hidden;
+    font-size: 16px;
+    line-height: 1.6;
 }
 
 .TopNav {
@@ -84,13 +86,11 @@ export default class Map extends Vue {
 
 .TopNavLogo {
     width: auto;
-    height: 50px;
+    height: 57px;
 }
 
 .TopNavContainer {
     display: flex;
-    margin: 0 auto;
-    max-width: 1140px;
 }
 
 .TopNavLeft,
