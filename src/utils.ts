@@ -33,3 +33,14 @@ export function throttle(callback: Function, delay: number) {
 
     return throttledEventHandler;
 }
+
+export function asyncTimeout(timeout?: number, ...args: unknown[]) {
+    let cancelToken = -1;
+    const promise = new Promise(resolve => {
+        cancelToken = setTimeout(resolve, timeout, args);
+    });
+    return {
+        promise,
+        cancelToken,
+    };
+}

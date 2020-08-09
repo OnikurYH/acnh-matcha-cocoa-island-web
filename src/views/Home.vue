@@ -16,10 +16,16 @@
             </div>
         </div>
         <div class="HomeMediaSection ContentContainer">
-            <img class="HomeMediaSectionLeft" src="/intro.png" />
+            <img class="HomeMediaSectionLeft" src="/static/images/home/intro.png" />
             <div class="HomeMediaSectionRight">
                 <h2 class="HomeMediaSectionHeading">{{ $t('home.intro.heading') }}</h2>
                 <p>{{ $t('home.intro.content') }}</p>
+            </div>
+        </div>
+        <div class="HomePreviewSection">
+            <div class="ContentContainer">
+                <h2 class="HomePreviewSectionHeading">{{ $t('home.preview.heading') }}</h2>
+                <SlideShow :value="slideShowValue" />
             </div>
         </div>
         <div class="HomeMediaSection _invert ContentContainer">
@@ -27,16 +33,31 @@
                 <h2 class="HomeMediaSectionHeading">{{ $t('home.cocoacaa.heading') }}</h2>
                 <p>{{ $t('home.cocoacaa.content') }}</p>
             </div>
-            <img class="HomeMediaSectionRight" src="/cocoacaa.png" />
+            <img class="HomeMediaSectionRight" src="/static/images/home/cocoacaa.png" />
         </div>
     </div>
 </template>
 
-<script>
+<script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
+import SlideShow, { SlideShowValueItem } from '../components/SlideShow.vue';
 
-@Component
-export default class Home extends Vue {}
+@Component({
+    components: {
+        SlideShow,
+    },
+})
+export default class Home extends Vue {
+    public slideShowValue: SlideShowValueItem[] = [];
+
+    public mounted() {
+        this.slideShowValue = [1, 2, 3, 4, 5, 6, 7].map(id => ({
+            id: `${id}`,
+            thumbnail: `/static/images/home/envs/env-${id}-thumbnail.png`,
+            original: `/static/images/home/envs/env-${id}.png`,
+        }));
+    }
+}
 </script>
 
 <style lang="scss">
@@ -131,6 +152,29 @@ export default class Home extends Vue {}
     text-align: center;
 }
 
+.HomePreviewSection {
+    margin-bottom: 20px;
+    background-color: rgb(232, 243, 255);
+    padding-top: 20px;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 60px;
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+.HomePreviewSectionHeading {
+    line-height: 1;
+    margin-left: 20px;
+    margin-right: 20px;
+
+    @media screen and (min-width: 768px) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
 .HomeMediaSection {
     display: flex;
     align-items: center;
@@ -189,10 +233,12 @@ export default class Home extends Vue {}
     }
 }
 
-.HomeMediaSectionHeading {
+.HomeMediaSectionHeading,
+.HomePreviewSectionHeading {
     margin-top: 0;
     color: #2c3e50;
     font-size: 24px;
+    line-height: 1;
 
     @media screen and (min-width: 768px) {
         font-size: 30px;

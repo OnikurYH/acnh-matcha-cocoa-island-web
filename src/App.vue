@@ -56,6 +56,10 @@ export default class Map extends Vue {
 <style lang="scss">
 @import '~normalize.css';
 
+* {
+    box-sizing: border-box;
+}
+
 #app {
     font-family: 'Manrope', 'Noto Sans HK', sans-serif;
     -webkit-font-smoothing: antialiased;
