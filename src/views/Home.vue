@@ -8,10 +8,12 @@
                 <div class="HomeHeaderBackgroundVideoOverlay" />
                 <div class="HomeHeaderBannerContent">
                     <h1 class="HomeHeaderHeading" v-html="$t('home.heading')" />
-                    <router-link class="HomeHeaderCTA" :to="`${$url('/map')}`">{{ $t('home.cta') }}</router-link>
-                    <button class="HomeHeaderSecondButton" @click="handleGoToLearnMore">
-                        {{ $t('home.learnMore') }}
-                    </button>
+                    <div class="HomeHeaderButtons">
+                        <router-link class="HomeHeaderCTA" :to="`${$url('/map')}`">{{ $t('home.cta') }}</router-link>
+                        <button class="HomeHeaderSecondButton" @click="handleGoToLearnMore">
+                            {{ $t('home.learnMore') }}
+                        </button>
+                    </div>
                 </div>
             </div>
             <div class="HomeHeaderLower">
@@ -143,11 +145,21 @@ export default class Home extends Vue {
 
 .HomeHeaderCTA,
 .HomeHeaderSecondButton {
+    display: inline-block;
     padding: 15px 35px;
     border-radius: 5px;
     font-size: 20px;
     text-decoration: none;
     cursor: pointer;
+}
+
+.HomeHeaderButtons {
+    display: flex;
+    flex-direction: column;
+
+    @media screen and (min-width: 768px) {
+        flex-direction: row;
+    }
 }
 
 .HomeHeaderCTA {
@@ -162,16 +174,21 @@ export default class Home extends Vue {
 }
 
 .HomeHeaderSecondButton {
-    margin-left: 10px;
     border: 1px solid #42b983;
     color: #42b983;
     background-color: #fff;
     transition: 200ms background-color, 200ms color;
     will-change: background-color, color;
+    margin-top: 10px;
 
     &:hover {
         background-color: #42b983;
         color: #fff;
+    }
+
+    @media screen and (min-width: 768px) {
+        margin-top: 0;
+        margin-left: 10px;
     }
 }
 
