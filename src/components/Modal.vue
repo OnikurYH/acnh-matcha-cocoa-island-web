@@ -84,6 +84,7 @@ export default class SlideShow extends Vue {
     background-color: #2c3e50;
     border: 0;
     line-height: 0;
+    cursor: pointer;
 
     > svg {
         width: 1em !important;
