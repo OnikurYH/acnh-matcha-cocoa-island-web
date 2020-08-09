@@ -9,13 +9,16 @@
                 <div class="HomeHeaderBannerContent">
                     <h1 class="HomeHeaderHeading" v-html="$t('home.heading')" />
                     <router-link class="HomeHeaderCTA" :to="`${$url('/map')}`">{{ $t('home.cta') }}</router-link>
+                    <button class="HomeHeaderSecondButton" @click="handleGoToLearnMore">
+                        {{ $t('home.learnMore') }}
+                    </button>
                 </div>
             </div>
             <div class="HomeHeaderLower">
                 <FontAwesomeIcon class="HomeHeaderLowerArrow" icon="arrow-down" />
             </div>
         </div>
-        <div class="HomeMediaSection ContentContainer">
+        <div class="HomeMediaSection ContentContainer" ref="learnMore">
             <img class="HomeMediaSectionLeft" src="/static/images/home/intro.png" />
             <div class="HomeMediaSectionRight">
                 <h2 class="HomeMediaSectionHeading">{{ $t('home.intro.heading') }}</h2>
@@ -28,12 +31,25 @@
                 <SlideShow :value="slideShowValue" />
             </div>
         </div>
+        <div class="HomeFullBackgroundSection HomeEventSection">
+            <div class="ContentContainer">
+                <h2 class="HomeFullBackgroundSectionHeading">{{ $t('home.events.heading') }}</h2>
+                <p class="HomeFullBackgroundSectionContent">{{ $t('home.events.content') }}</p>
+            </div>
+        </div>
         <div class="HomeMediaSection _invert ContentContainer">
             <div class="HomeMediaSectionLeft">
                 <h2 class="HomeMediaSectionHeading">{{ $t('home.cocoacaa.heading') }}</h2>
                 <p>{{ $t('home.cocoacaa.content') }}</p>
             </div>
             <img class="HomeMediaSectionRight" src="/static/images/home/cocoacaa.png" />
+        </div>
+        <div class="HomeVisitNowSection">
+            <div class="ContentContainer">
+                <h2 class="HomeVisitNowSectionHeading" v-html="$t('home.visitNow.heading')" />
+                <div class="HomeVisitNowSectionViaDreameTitle">{{ $t('home.visitNow.viaDream.title') }}</div>
+                <div class="HomeVisitNowSectionViaDreameId">{{ $t('home.visitNow.viaDream.id') }}</div>
+            </div>
         </div>
     </div>
 </template>
@@ -57,6 +73,11 @@ export default class Home extends Vue {
             original: `/static/images/home/envs/env-${id}.png`,
         }));
     }
+
+    public handleGoToLearnMore() {
+        const learnMore = this.$refs.learnMore as HTMLElement;
+        this.$el.scrollTo(0, learnMore.offsetTop - 120);
+    }
 }
 </script>
 
@@ -64,6 +85,7 @@ export default class Home extends Vue {
 .HomeContainer {
     flex: 1;
     overflow: auto;
+    scroll-behavior: smooth;
 }
 
 .HomeHeader {
@@ -119,17 +141,37 @@ export default class Home extends Vue {
     }
 }
 
-.HomeHeaderCTA {
-    background-color: #42b983;
+.HomeHeaderCTA,
+.HomeHeaderSecondButton {
     padding: 15px 35px;
     border-radius: 5px;
-    color: #fff;
     font-size: 20px;
     text-decoration: none;
+    cursor: pointer;
+}
+
+.HomeHeaderCTA {
+    background-color: #42b983;
+    color: #fff;
     transition: 200ms background-color;
+    will-change: background-color;
 
     &:hover {
         background-color: #329267;
+    }
+}
+
+.HomeHeaderSecondButton {
+    margin-left: 10px;
+    border: 1px solid #42b983;
+    color: #42b983;
+    background-color: #fff;
+    transition: 200ms background-color, 200ms color;
+    will-change: background-color, color;
+
+    &:hover {
+        background-color: #42b983;
+        color: #fff;
     }
 }
 
@@ -153,12 +195,10 @@ export default class Home extends Vue {
 }
 
 .HomePreviewSection {
-    margin-bottom: 20px;
     background-color: rgb(232, 243, 255);
     padding-top: 20px;
 
     @media screen and (min-width: 768px) {
-        margin-bottom: 60px;
         padding-top: 60px;
         padding-bottom: 60px;
     }
@@ -233,8 +273,71 @@ export default class Home extends Vue {
     }
 }
 
+.HomeFullBackgroundSection {
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    margin-bottom: 20px;
+    text-align: center;
+
+    @media screen and (min-width: 768px) {
+        margin-bottom: 60px;
+    }
+}
+
+.HomeFullBackgroundSectionHeading {
+    color: #fff !important;
+}
+
+.HomeEventSection {
+    background-image: url('/static/images/home/night-2.png');
+    color: #fff;
+    margin-bottom: 0;
+
+    @media screen and (min-width: 768px) {
+        min-height: 300px;
+        margin-bottom: 60px;
+    }
+}
+
+.HomeFullBackgroundSectionContent {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+}
+
+.HomeVisitNowSection {
+    text-align: center;
+    background-color: #442e42;
+    padding-top: 20px;
+    color: #fff;
+
+    @media screen and (min-width: 768px) {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+}
+
+.HomeVisitNowSectionHeading {
+    color: #fff !important;
+}
+
+.HomeVisitNowSectionViaDreameTitle {
+    font-size: 20px;
+}
+
+.HomeVisitNowSectionViaDreameId {
+    font-size: 30px;
+    color: #39c2dc;
+    font-weight: bold;
+}
+
 .HomeMediaSectionHeading,
-.HomePreviewSectionHeading {
+.HomePreviewSectionHeading,
+.HomeFullBackgroundSectionHeading,
+.HomeVisitNowSectionHeading {
     margin-top: 0;
     color: #2c3e50;
     font-size: 24px;

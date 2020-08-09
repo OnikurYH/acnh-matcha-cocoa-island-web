@@ -3,6 +3,7 @@ export default {
     home: {
         heading: '抹茶可可島<small>旅遊官方網站</small>',
         cta: '按此進入地圖',
+        learnMore: '了解更多',
         intro: {
             heading: '抹茶？可可？是什麼來的？',
             content:
@@ -15,6 +16,17 @@ export default {
             heading: '島民代表：CocoaCaa',
             content:
                 '中文名「可綠」，和島名原理差不多，只不過是可可加綠茶，而英文 Cocoa 就是 可可，Caa 就是粵拼的 茶（為什麼不用綠的粵拼是因為不夠好看 XP）。在島上大約活動了 860 小時以上（根據 NS 內的統計至 2020年 8月 5日），將一個完全沒有人的無人島，花了不少時間去找合適的居民搬進來，建成有不少居民住的 ★★★★★ 星島。並為島建立了這個旅遊官方網站，希望讓更多人認識抹茶可可島以及方便大家在島上旅遊。',
+        },
+        events: {
+            heading: '更有氣氛的活動',
+            content: '島上的建設，令節日活動更加有氣氛。',
+        },
+        visitNow: {
+            heading: '進入<span style="color: #f48fca;">$t(islandName)</span>吧！',
+            viaDream: {
+                title: '在房子睡覺，然後告訴夢美夢境門牌號：',
+                id: 'DA-0000-0000-0000',
+            },
         },
     },
     map: {
