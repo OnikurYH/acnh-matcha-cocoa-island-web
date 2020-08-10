@@ -2,7 +2,24 @@ export default {
     islandName: '抹茶ココ島',
     home: {
         heading: '抹茶ココ島<small>観光公式ホームページ</small>',
+        dreamId: {
+            label: '夢番地',
+        },
         cta: 'マップはこちら',
+        learnMore: '詳しく(未完成)',
+        intro: {
+            heading: '抹茶？ココ？それは何ですか？',
+        },
+        preview: {
+            heading: '島上風景',
+        },
+        visitNow: {
+            heading: '<span style="color: #f48fca;">$t(islandName)</span>は行きましょう！',
+            viaDream: {
+                title: '夢番地公開します：',
+                id: '$t(home.dreamId.value)',
+            },
+        },
     },
     map: {
         name: 'マップ',
