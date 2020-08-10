@@ -8,6 +8,10 @@
                 <div class="HomeHeaderBackgroundVideoOverlay" />
                 <div class="HomeHeaderBannerContent">
                     <h1 class="HomeHeaderHeading" v-html="$t('home.heading')" />
+                    <div class="HomeHeaderDreamId">
+                        {{ $t('home.dreamId.label') }}
+                        <span class="HomeHeaderDreamIdValue">{{ $t('home.dreamId.value') }}</span>
+                    </div>
                     <div class="HomeHeaderButtons">
                         <router-link class="HomeHeaderCTA" :to="`${$url('/map')}`">{{ $t('home.cta') }}</router-link>
                         <button class="HomeHeaderSecondButton" @click="handleGoToLearnMore">
@@ -39,12 +43,12 @@
                 <p class="HomeFullBackgroundSectionContent">{{ $t('home.events.content') }}</p>
             </div>
         </div>
-        <div class="HomeMediaSection _invert ContentContainer">
-            <div class="HomeMediaSectionLeft">
+        <div class="HomeMediaSection ContentContainer">
+            <img class="HomeMediaSectionLeft" src="/static/images/home/cocoacaa.png" />
+            <div class="HomeMediaSectionRight">
                 <h2 class="HomeMediaSectionHeading">{{ $t('home.cocoacaa.heading') }}</h2>
                 <p>{{ $t('home.cocoacaa.content') }}</p>
             </div>
-            <img class="HomeMediaSectionRight" src="/static/images/home/cocoacaa.png" />
         </div>
         <div class="HomeVisitNowSection">
             <div class="ContentContainer">
@@ -136,10 +140,27 @@ export default class Home extends Vue {
     font-size: 48px;
     margin-top: 0;
     line-height: 1.3;
+    margin-bottom: 10px;
 
     > small {
         display: block;
         font-size: 0.5em;
+    }
+}
+
+.HomeHeaderDreamId {
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.HomeHeaderDreamIdValue {
+    color: #39c2dc;
+    font-weight: bold;
+    margin-left: 10px;
+    font-size: 18px;
+
+    @media screen and (min-width: 768px) {
+        font-size: 24px;
     }
 }
 
@@ -150,12 +171,14 @@ export default class Home extends Vue {
     border-radius: 5px;
     font-size: 20px;
     text-decoration: none;
+    line-height: 1.3;
     cursor: pointer;
 }
 
 .HomeHeaderButtons {
     display: flex;
     flex-direction: column;
+    padding: 0 20px;
 
     @media screen and (min-width: 768px) {
         flex-direction: row;
@@ -306,6 +329,18 @@ export default class Home extends Vue {
 
 .HomeFullBackgroundSectionHeading {
     color: #fff !important;
+    text-shadow: 1px 1px 0 #000;
+}
+
+.HomeFullBackgroundSectionContent {
+    display: block;
+    margin: 0 auto;
+    max-width: 500px;
+    text-shadow: 1px 1px 0 #000;
+
+    @media screen and (min-width: 768px) {
+        font-size: 18px;
+    }
 }
 
 .HomeEventSection {
@@ -317,12 +352,6 @@ export default class Home extends Vue {
         min-height: 300px;
         margin-bottom: 60px;
     }
-}
-
-.HomeFullBackgroundSectionContent {
-    display: block;
-    margin: 0 auto;
-    max-width: 300px;
 }
 
 .HomeVisitNowSection {
