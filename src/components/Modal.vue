@@ -24,7 +24,7 @@ export default class SlideShow extends Vue {
     public async handleShow(current: boolean) {
         if (current) {
             this.isShowing = true;
-            await asyncTimeout(1);
+            await asyncTimeout(1).promise;
             this.cssShow = true;
         }
     }
