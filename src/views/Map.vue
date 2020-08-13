@@ -199,7 +199,7 @@ export default class Map extends Vue {
 
     @media screen and (min-width: 768px) {
         width: 10vw;
-        min-width: 200px;
+        min-width: 300px;
     }
 }
 
