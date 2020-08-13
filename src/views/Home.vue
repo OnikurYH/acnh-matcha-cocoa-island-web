@@ -97,17 +97,17 @@ export default class Home extends Vue {
 .HomeHeader {
     display: flex;
     flex-direction: column;
-    height: 100%;
     margin-bottom: 60px;
 }
 
 .HomeHeaderUpper {
     position: relative;
-    flex: 1;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
     color: #fff;
+    padding: 30px 0;
 }
 
 .HomeHeaderLower {
