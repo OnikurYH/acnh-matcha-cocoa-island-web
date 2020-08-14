@@ -11,7 +11,7 @@ export default {
             heading: '抹茶？ココ？それは何ですか？',
         },
         preview: {
-            heading: '島上風景',
+            heading: '島の風景',
         },
         visitNow: {
             heading: '<span style="color: #f48fca;">$t(islandName)</span>は行きましょう！',
