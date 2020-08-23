@@ -3,10 +3,6 @@ module.exports = {
     chainWebpack: config => {
         config.module.rule('svg').uses.clear();
 
-        // svgRule.uses.clear();
-
-        // svgRule.use('svg-inline-loader').loader('svg-inline-loader');
-
         config.module
             .rule('svg-image')
             .test(/(assets\/images).*\.svg$/)
