@@ -89,8 +89,8 @@ export default {
             'home-bettina': {
                 text: 'マルコ',
             },
-            'home-walker': {
-                text: 'ベン',
+            'home-julia': {
+                text: 'ジュリア',
             },
             'home-plucky': {
                 text: 'パタヤ',

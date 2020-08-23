@@ -382,13 +382,13 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
         },
         {
             name: 'home',
-            text: t('map.buildings.home-walker.text'),
-            suffix: 'walker',
+            text: t('map.buildings.home-julia.text'),
+            suffix: 'julia',
             address: '丸阿街 2 號',
             x: 22,
             y: 53,
             svg: locationHome,
-            haveIcon: true,
+            haveIcon: false,
         },
         {
             name: 'home',

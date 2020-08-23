@@ -101,8 +101,8 @@ export default {
             'home-bettina': {
                 text: '丸子家',
             },
-            'home-walker': {
-                text: '阿笨家',
+            'home-julia': {
+                text: '朱莉亞家',
             },
             'home-plucky': {
                 text: '帕塔雅家',
