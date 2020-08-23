@@ -4,7 +4,7 @@ export default {
         heading: '抹茶可可島<small>旅遊官方網站</small>',
         dreamId: {
             label: '夢境門牌號',
-            value: 'DA-0000-0000-0000',
+            value: 'DA-4963-2334-9154',
         },
         cta: '按此進入地圖',
         learnMore: '了解更多',
