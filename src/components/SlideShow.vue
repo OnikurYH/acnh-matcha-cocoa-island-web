@@ -1,7 +1,7 @@
 <template>
     <div class="SlideShowContainer">
         <div class="SlideShow">
-            <button class="SlideShowNav" :disabled="currentPage === 0" @click="handlePrevious">
+            <button class="SlideShowNav" :disabled="currentPage === 0" @click="handlePrevious" aria-label="Left">
                 <FontAwesomeIcon icon="caret-left" />
             </button>
             <div :class="{ SlideShowScroller: true, _transition: transitionCancelToken > -1 }">
@@ -15,10 +15,10 @@
                     <div class="SlideShowItemOverlay">
                         <FontAwesomeIcon icon="search" />
                     </div>
-                    <img v-if="item" class="SlideShowItemImage" :src="item.thumbnail" />
+                    <img v-if="item" class="SlideShowItemImage" :src="item.thumbnail" :alt="`Slide image ${item.id}`" />
                 </div>
             </div>
-            <button class="SlideShowNav" :disabled="currentPage >= maxPage" @click="handleNext">
+            <button class="SlideShowNav" :disabled="currentPage >= maxPage" @click="handleNext" aria-label="Right">
                 <FontAwesomeIcon icon="caret-right" />
             </button>
         </div>

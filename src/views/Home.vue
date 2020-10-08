@@ -25,7 +25,7 @@
             </div>
         </div>
         <div class="HomeMediaSection ContentContainer" ref="learnMore">
-            <img class="HomeMediaSectionLeft" src="/static/images/home/intro.png" />
+            <img class="HomeMediaSectionLeft" src="/static/images/home/intro.png" alt="Intro" />
             <div class="HomeMediaSectionRight">
                 <h2 class="HomeMediaSectionHeading">{{ $t('home.intro.heading') }}</h2>
                 <p>{{ $t('home.intro.content') }}</p>
@@ -44,7 +44,7 @@
             </div>
         </div>
         <div class="HomeMediaSection ContentContainer">
-            <img class="HomeMediaSectionLeft" src="/static/images/home/cocoacaa.png" />
+            <img class="HomeMediaSectionLeft" src="/static/images/home/cocoacaa.png" alt="CocoaCaa" />
             <div class="HomeMediaSectionRight">
                 <h2 class="HomeMediaSectionHeading">{{ $t('home.cocoacaa.heading') }}</h2>
                 <p>{{ $t('home.cocoacaa.content') }}</p>
