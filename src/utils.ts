@@ -1,6 +1,6 @@
 export function debounce(func: Function, wait: number, immediate = false) {
     let timeout: number | undefined;
-    return function(this: unknown, ...args: unknown[]) {
+    return function (this: unknown, ...args: unknown[]) {
         const later = () => {
             timeout = undefined;
             if (!immediate) func.apply(this, args);
@@ -36,7 +36,7 @@ export function throttle(callback: Function, delay: number) {
 
 export function asyncTimeout(timeout?: number, ...args: unknown[]) {
     let cancelToken = -1;
-    const promise = new Promise(resolve => {
+    const promise = new Promise((resolve) => {
         cancelToken = setTimeout(resolve, timeout, args);
     });
     return {

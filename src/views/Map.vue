@@ -5,11 +5,9 @@
                 <img
                     class="map-info__icon"
                     v-if="selectedLocation.haveIcon"
-                    :src="
-                        `/location-icons/${selectedLocation.name}${
-                            selectedLocation.suffix ? `-${selectedLocation.suffix}` : ''
-                        }.png`
-                    "
+                    :src="`/location-icons/${selectedLocation.name}${
+                        selectedLocation.suffix ? `-${selectedLocation.suffix}` : ''
+                    }.png`"
                 />
                 <h2 class="map-info__text">
                     {{ selectedLocation.text }}
@@ -108,8 +106,8 @@ export default class Map extends Vue {
 
     public get selectedLocation() {
         const location =
-            this.buildings.find(b => b.text === this.selectedLocationKey) ||
-            this.areas.find(a => a.text === this.selectedLocationKey);
+            this.buildings.find((b) => b.text === this.selectedLocationKey) ||
+            this.areas.find((a) => a.text === this.selectedLocationKey);
 
         return location;
     }

@@ -73,7 +73,7 @@ export default class Home extends Vue {
     public slideShowValue: SlideShowValueItem[] = [];
 
     public mounted() {
-        this.slideShowValue = [1, 2, 3, 4, 5, 6, 7].map(id => ({
+        this.slideShowValue = [1, 2, 3, 4, 5, 6, 7].map((id) => ({
             id: `${id}`,
             thumbnail: `/static/images/home/envs/env-${id}-thumbnail.png`,
             original: `/static/images/home/envs/env-${id}.png`,
