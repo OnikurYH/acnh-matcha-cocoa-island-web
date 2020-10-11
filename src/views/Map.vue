@@ -76,6 +76,9 @@ export default class Map extends Vue {
     public x = 0;
     public y = 0;
 
+    private lastTouchX: number | null = null;
+    private lastTouchY: number | null = null;
+
     public get areas(): LocationArea[] {
         return config.getAreas(this.$t);
     }
@@ -92,9 +95,9 @@ export default class Map extends Vue {
 
         const userAgent = window.navigator.userAgent;
         if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
-            this.$el.addEventListener('mousedown', this.handleMouseDown.bind(this));
-            window.addEventListener('mousemove', this.handleMouseMove.bind(this));
-            this.$el.addEventListener('mouseup', this.handleMouseUp.bind(this));
+            this.$el.addEventListener('touchstart', this.handleMouseDown.bind(this));
+            window.addEventListener('touchmove', this.handleTouchMove.bind(this));
+            this.$el.addEventListener('touchend', this.handleMouseUp.bind(this));
         } else {
             this.$el.addEventListener('pointerdown', this.handleMouseDown.bind(this));
             window.addEventListener('pointermove', this.handleMouseMove.bind(this));
@@ -107,9 +110,9 @@ export default class Map extends Vue {
 
         const userAgent = window.navigator.userAgent;
         if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
-            this.$el.removeEventListener('mousedown', this.handleMouseDown.bind(this));
-            window.removeEventListener('mousemove', this.handleMouseMove.bind(this));
-            this.$el.removeEventListener('mouseup', this.handleMouseUp.bind(this));
+            this.$el.removeEventListener('touchstart', this.handleMouseDown.bind(this));
+            window.removeEventListener('touchmove', this.handleTouchMove.bind(this));
+            this.$el.removeEventListener('touchend', this.handleMouseUp.bind(this));
         } else {
             this.$el.removeEventListener('pointerdown', this.handleMouseDown.bind(this));
             window.removeEventListener('pointermove', this.handleMouseMove.bind(this));
@@ -129,7 +132,21 @@ export default class Map extends Vue {
         this.isDragging = true;
     }
 
-    public handleMouseMove(ev: PointerEvent | MouseEvent) {
+    public handleTouchMove(ev: TouchEvent) {
+        if (!this.isDragging) {
+            return;
+        }
+
+        if (this.lastTouchX && this.lastTouchY) {
+            this.x += ev.touches[0].pageX - this.lastTouchX;
+            this.y += ev.touches[0].pageY - this.lastTouchY;
+        }
+
+        this.lastTouchX = ev.touches[0].pageX;
+        this.lastTouchY = ev.touches[0].pageY;
+    }
+
+    public handleMouseMove(ev: PointerEvent) {
         if (!this.isDragging) {
             return;
         }
