@@ -137,7 +137,7 @@ export default class Map extends Vue {
             return;
         }
 
-        if (this.lastTouchX && this.lastTouchY) {
+        if (this.lastTouchX != null && this.lastTouchY != null) {
             this.x += ev.touches[0].pageX - this.lastTouchX;
             this.y += ev.touches[0].pageY - this.lastTouchY;
         }
@@ -157,6 +157,9 @@ export default class Map extends Vue {
 
     public handleMouseUp() {
         this.isDragging = false;
+
+        this.lastTouchX = null;
+        this.lastTouchY = null;
 
         // const mapContent = this.$refs.mapContent as HTMLDivElement;
         // const mapScroll = this.$refs.mapScroll as HTMLDivElement;
