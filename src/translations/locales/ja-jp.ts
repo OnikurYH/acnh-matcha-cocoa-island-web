@@ -13,6 +13,10 @@ export default {
         preview: {
             heading: '島の風景',
         },
+        melody: {
+            heading: '島メロ',
+            content: '島民の代表が鉄道好きということもあり、島の鐘の音楽は日本のJR発車メロディー「すすきの高原」をモチーフにしています。 左の映画はこの曲のオリジナルバージョン。YouTubeユーザー「発車メロディーTrain Melody」さん提供。',
+        },
         visitNow: {
             heading: '<span style="color: #f48fca;">$t(islandName)</span>は行きましょう！',
             viaDream: {

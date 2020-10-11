@@ -50,6 +50,21 @@
                 <p>{{ $t('home.cocoacaa.content') }}</p>
             </div>
         </div>
+        <div class="HomeMediaSection ContentContainer">
+            <iframe
+                class="HomeMediaSectionLeft _video"
+                width="400"
+                height="320"
+                src="https://www.youtube.com/embed/opPN8sMu9vg"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+            ></iframe>
+            <div class="HomeMediaSectionRight">
+                <h2 class="HomeMediaSectionHeading">{{ $t('home.melody.heading') }}</h2>
+                <p>{{ $t('home.melody.content') }}</p>
+            </div>
+        </div>
         <div class="HomeVisitNowSection">
             <div class="ContentContainer">
                 <h2 class="HomeVisitNowSectionHeading" v-html="$t('home.visitNow.heading')" />
@@ -310,6 +325,13 @@ export default class Home extends Vue {
         margin-top: 0;
         margin-left: 0;
         margin-right: 0;
+    }
+}
+
+.HomeMediaSectionLeft {
+    &._video {
+        height: 320px;
+        min-height: 320px;
     }
 }
 
