@@ -90,18 +90,31 @@ export default class Map extends Vue {
         this.throttleHandleScroll = throttle(this.handleScroll.bind(this), 60 / 1000);
         this.$el.addEventListener('wheel', this.throttleHandleScroll);
 
-        this.$el.addEventListener('pointerdown', this.handleMouseDown.bind(this));
-        window.addEventListener('pointermove', this.handleMouseMove.bind(this));
-        this.$el.addEventListener('pointerup', this.handleMouseUp.bind(this));
-        window.addEventListener('pointercancel', () => console.log('fff'));
+        const userAgent = window.navigator.userAgent;
+        if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+            this.$el.addEventListener('mousedown', this.handleMouseDown.bind(this));
+            window.addEventListener('mousemove', this.handleMouseMove.bind(this));
+            this.$el.addEventListener('mouseup', this.handleMouseUp.bind(this));
+        } else {
+            this.$el.addEventListener('pointerdown', this.handleMouseDown.bind(this));
+            window.addEventListener('pointermove', this.handleMouseMove.bind(this));
+            this.$el.addEventListener('pointerup', this.handleMouseUp.bind(this));
+        }
     }
 
     public beforeDestroy() {
         this.$el.removeEventListener('wheel', this.throttleHandleScroll);
 
-        this.$el.removeEventListener('pointerdown', this.handleMouseDown.bind(this));
-        window.removeEventListener('pointermove', this.handleMouseMove.bind(this));
-        this.$el.removeEventListener('pointerup', this.handleMouseUp.bind(this));
+        const userAgent = window.navigator.userAgent;
+        if (userAgent.match(/iPad/i) || userAgent.match(/iPhone/i)) {
+            this.$el.removeEventListener('mousedown', this.handleMouseDown.bind(this));
+            window.removeEventListener('mousemove', this.handleMouseMove.bind(this));
+            this.$el.removeEventListener('mouseup', this.handleMouseUp.bind(this));
+        } else {
+            this.$el.removeEventListener('pointerdown', this.handleMouseDown.bind(this));
+            window.removeEventListener('pointermove', this.handleMouseMove.bind(this));
+            this.$el.removeEventListener('pointerup', this.handleMouseUp.bind(this));
+        }
     }
 
     public get selectedLocation() {
@@ -116,7 +129,7 @@ export default class Map extends Vue {
         this.isDragging = true;
     }
 
-    public handleMouseMove(ev: PointerEvent) {
+    public handleMouseMove(ev: PointerEvent | MouseEvent) {
         if (!this.isDragging) {
             return;
         }
