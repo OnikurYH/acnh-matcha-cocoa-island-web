@@ -92,6 +92,9 @@ export default {
             'home-julia': {
                 text: 'ジュリア',
             },
+            'home-whitney': {
+                text: 'ビアンカ',
+            },
             'home-plucky': {
                 text: 'パタヤ',
             },
@@ -106,6 +109,9 @@ export default {
             },
             'home-jay': {
                 text: 'ツバクロ',
+            },
+            'home-papi': {
+                text: 'オカッピ',
             },
             'home-goldie': {
                 text: 'キャラメル',

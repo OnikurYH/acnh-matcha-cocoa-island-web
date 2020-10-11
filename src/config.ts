@@ -174,8 +174,8 @@ export function getAreas(t: TFunction): LocationArea[] {
             x: 35.2,
             y: 71.6,
             type: 'bridge',
-            width: 2.5,
-            height: 1.5,
+            width: 3.1,
+            height: 2.5,
         },
         {
             name: 'bridge-home-2',
@@ -184,8 +184,8 @@ export function getAreas(t: TFunction): LocationArea[] {
             x: 44.1,
             y: 49.2,
             type: 'bridge',
-            width: 2.5,
-            height: 1.5,
+            width: 3.1,
+            height: 2.5,
         },
         {
             name: 'bridge-center',
@@ -194,8 +194,8 @@ export function getAreas(t: TFunction): LocationArea[] {
             x: 61.3,
             y: 43.7,
             type: 'bridge',
-            width: 2.5,
-            height: 1.5,
+            width: 3.5,
+            height: 2.5,
         },
     ];
 }
@@ -382,13 +382,13 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
         },
         {
             name: 'home',
-            text: t('map.buildings.home-julia.text'),
-            suffix: 'julia',
+            text: t('map.buildings.home-whitney.text'),
+            suffix: 'whitney',
             address: '丸阿街 2 號',
             x: 22,
             y: 53,
             svg: locationHome,
-            haveIcon: false,
+            haveIcon: true,
         },
         {
             name: 'home',
@@ -432,8 +432,8 @@ export function getBuildings(t: TFunction): LocationBuilding[] {
         },
         {
             name: 'home',
-            text: t('map.buildings.home-jay.text'),
-            suffix: 'jay',
+            text: t('map.buildings.home-papi.text'),
+            suffix: 'papi',
             address: '橫民街 3 號',
             x: 30,
             y: 40,

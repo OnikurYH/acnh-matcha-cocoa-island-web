@@ -104,6 +104,9 @@ export default {
             'home-julia': {
                 text: '朱莉亞家',
             },
+            'home-whitney': {
+                text: '畢安卡家',
+            },
             'home-plucky': {
                 text: '帕塔雅家',
             },
@@ -118,6 +121,9 @@ export default {
             },
             'home-jay': {
                 text: '阿燕家',
+            },
+            'home-papi': {
+                text: '小岡家',
             },
             'home-goldie': {
                 text: '牛奶糖家',
